@@ -3,7 +3,8 @@ package com.stacks;
 public class AcceptanceTester {
 
 	private static final Test[] tests = {
-		new StackOfStringsTest()
+		new StackOfStringsTest(),
+		new FixedCapacityStackOfStringsTest()
 	};
 	
 	public static void main(String[] args) {

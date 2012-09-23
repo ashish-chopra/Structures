@@ -1,12 +1,13 @@
 package com.stacks;
 
-public class StackOfStringsTest implements Test {
+public class FixedCapacityStackOfStringsTest implements Test{
 
 	public void run() {
-	
-		// creating empty test
-		StackOfStrings stack = new StackOfStrings();
+		
+		//testing empty stack
+		FixedCapacityStackOfStrings stack = new FixedCapacityStackOfStrings(10);
 		assert (stack.isEmpty());
+		assert (stack.size() == 0);
 		
 		// testing push
 		stack.push("quick");
@@ -26,13 +27,12 @@ public class StackOfStringsTest implements Test {
 		// testing underflow
 		try {
 			stack.pop();
-		} catch (NullPointerException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			assert true;
-		} catch (Exception e) {
-			assert false;
 		}
-	   	
+			
 		
 		
 	}
+	
 }
