@@ -15,6 +15,21 @@ package com.stacks;
  * @author Ashish Chopra
  * @version 1.0
  */
+/*
+ * Merits:
+ * 
+ * 1. Details of implementation, that is use of node is completely hidden
+ *    from the client and is not exposed through interface.
+ * 2. In the worst case scenario, each operation is O(1).
+ * 3. For N number of elements in a stack, 40N memory is taken on the stack.
+ * 
+ * De-Merits: 
+ * 
+ * 1. The data structure is used only for stack of Strings.
+ * 2. Though it is speedy, but one has to deal with link structure
+ *    and high memory usage.
+ *    
+ */
 public class StackOfStrings {
 
 	private Node first = null;

@@ -1,5 +1,7 @@
 package com.stacks;
 
+import com.Test;
+
 public class StackOfStringsTest implements Test {
 
 	public void run() {

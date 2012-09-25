@@ -1,4 +1,4 @@
-package com.stacks;
+package com;
 
 public interface Test {
 	public void run();

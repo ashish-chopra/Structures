@@ -2,14 +2,12 @@ package com.stacks;
 
 import com.Test;
 
-public class FixedCapacityStackOfStringsTest implements Test{
+public class ResizingCapacityStackOfStringsTest implements Test {
 
 	public void run() {
-		
-		//testing empty stack
-		FixedCapacityStackOfStrings stack = new FixedCapacityStackOfStrings(10);
+		// creating empty test
+		ResizingCapacityStackOfStrings stack = new ResizingCapacityStackOfStrings();
 		assert (stack.isEmpty());
-		assert (stack.size() == 0);
 		
 		// testing push
 		stack.push("quick");
@@ -26,15 +24,5 @@ public class FixedCapacityStackOfStringsTest implements Test{
 		assert (stack.isEmpty());
 		assert (stack.size() == 0);
 		
-		// testing underflow
-		try {
-			stack.pop();
-		} catch (ArrayIndexOutOfBoundsException e) {
-			assert true;
-		}
-			
-		
-		
 	}
-	
 }

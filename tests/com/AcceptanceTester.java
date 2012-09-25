@@ -1,10 +1,17 @@
-package com.stacks;
+package com;
+
+import com.stacks.FixedCapacityStackOfStringsTest;
+import com.stacks.ResizingCapacityStackOfStringsTest;
+import com.stacks.StackOfStringsTest;
+import com.stacks.StackTest;
 
 public class AcceptanceTester {
 
 	private static final Test[] tests = {
 		new StackOfStringsTest(),
-		new FixedCapacityStackOfStringsTest()
+		new FixedCapacityStackOfStringsTest(),
+		new ResizingCapacityStackOfStringsTest(),
+		new StackTest()
 	};
 	
 	public static void main(String[] args) {
