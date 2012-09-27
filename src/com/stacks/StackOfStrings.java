@@ -2,7 +2,27 @@
  *  File: StackOfStrings.java
  *  Date: 23 Spet, 2012
  *  Author : Ashish Chopra
+ *  -------------------------------------------------
+ *  StackOfStrings is an implementation of abstract data
+ *  strucutre "stack" for String type of elements only.
  *  
+ *  Merits:
+ * 
+ * 1. Details of implementation is completely hidden
+ *    from the client and is not exposed through API.
+ * 2. In the worst case scenario, each operation is O(1).
+ * 3. Using link based implementation, no overflow issue arises.
+ * 
+ * De-Merits: 
+ * 
+ * 1. The data structure is used only for stack of Strings, it is not
+ *    made for general use.
+ * 2. Though it is speedy, but one has to deal with link structure
+ *    and high memory usage.
+ * 3. For N number of elements in a stack, 40N memory is taken on the stack.
+ * 4. Stack underflow condition are not handled properly 
+ *    (lacks dealing with corner cases).
+ *    
  */
 package com.stacks;
 
@@ -14,21 +34,6 @@ package com.stacks;
  * 
  * @author Ashish Chopra
  * @version 1.0
- */
-/*
- * Merits:
- * 
- * 1. Details of implementation, that is use of node is completely hidden
- *    from the client and is not exposed through interface.
- * 2. In the worst case scenario, each operation is O(1).
- * 3. For N number of elements in a stack, 40N memory is taken on the stack.
- * 
- * De-Merits: 
- * 
- * 1. The data structure is used only for stack of Strings.
- * 2. Though it is speedy, but one has to deal with link structure
- *    and high memory usage.
- *    
  */
 public class StackOfStrings {
 
