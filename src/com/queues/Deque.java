@@ -1,24 +1,74 @@
+/*
+ *  File: Deque.java
+ *  Date: 24 Sept, 2012
+ *  Author: Ashish Chopra
+ *  ---------------------------------------------
+ *  Deque is an abstract data structure and an adaptation
+ *  of queue, such that the elements can be inserted and removed from
+ *  the front as well as from the last.
+ *  It is implemented for generic types of data.
+ *  It also implements iterable interface to provide an iterator over the 
+ *  elements from front to end.
+ *  
+ *  It throws:
+ *  1. NullPointerException when null element is inserted.
+ *  2. NoSuchElementException when remove operation is performed on empty queue.
+ *  3. UnsupportedOperationException when iterator's remove methos is invoked.
+ *     
+ */
 package com.queues;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * 
+ * Deque is an adaptation of queue in which elements can be inserted
+ * and removed from front as well as from end. It implements 
+ * <code>Iterable</code> interface to provide iterator over elements and
+ * is implemented for generic type of data elements.
+ * 
+ * @author Ashish Chopra
+ *
+ * @param <Item>
+ */
 public class Deque<Item> implements Iterable<Item> {
 
 	private Node first, last;
+	
+	/**
+	 * constructs the object.
+	 */
 	public Deque() {
 		first = null;
 		last = null;
 	}
 	
+	/**
+	 * checks to see if deque is empty.
+	 * @return <code>true</code> if no elements present, 
+	 *         <code>false</code> otherwise.
+	 */
 	public boolean isEmpty() {
 		return first == null && last == null;
 	}
 	
+	/**
+	 * returns the number of elements in the deque.
+	 * @return the size as int.
+	 */
 	public int size() {
-		return 0;
+		int count = 0;
+		for (Item item : this) {
+			count++;
+		}
+		return count;
 	}
 	
+	/**
+	 * adds an element at the front of the queue.
+	 * @param item element to be inserted, should be not null.
+	 */
 	public void addFirst(Item item) {
 		if (item == null)
 			throw new NullPointerException("null values cannot be inserted.");
@@ -50,12 +100,23 @@ public class Deque<Item> implements Iterable<Item> {
 			throw new NoSuchElementException("no element exists on deque.");
 		
 		Item item = first.item;
-		first = first.next;
+		if (first == last) {
+			first = first.next;
+			last = first;
+		} else 
+			first = first.next;
 		return item;
 	}
 	
 	public Item removeLast() {
-		return null;
+		if (isEmpty())
+			throw new NoSuchElementException("no element exists on deque.");
+		Item item = last.item;
+		if (first == last) {
+			first = null;
+			last = null;
+		}
+		return item;
 	}
 	
 	public Iterator<Item> iterator() {
@@ -68,17 +129,22 @@ public class Deque<Item> implements Iterable<Item> {
 	}
 	
 	private class DequeIterator implements Iterator<Item> {
-
+		private Node current = first;
+		
 		public boolean hasNext() {
-			return false;
+			return current != null;
 		}
 
 		public Item next() {
-			return null;
+			if(!hasNext())
+				throw new NoSuchElementException("no element exists in deque");
+			Item item = current.item;
+			current = current.next;
+			return item;
 		}
 
 		public void remove() {
-			
+			throw new UnsupportedOperationException("remove operation not supported");
 		}
 	}
 	
