@@ -6,7 +6,8 @@
  *  Deque is an abstract data structure and an adaptation
  *  of queue, such that the elements can be inserted and removed from
  *  the front as well as from the last.
- *  It is implemented for generic types of data.
+ *  It is implemented for generic types of data using doublly linked list
+ *  implementation.
  *  It also implements iterable interface to provide an iterator over the 
  *  elements from front to end.
  *  
@@ -14,7 +15,7 @@
  *  1. NullPointerException when null element is inserted.
  *  2. NoSuchElementException when remove operation is performed on empty queue.
  *  3. UnsupportedOperationException when iterator's remove methos is invoked.
- *     
+ *    
  */
 package com.queues;
 
@@ -80,9 +81,12 @@ public class Deque<Item> implements Iterable<Item> {
 			last = first;
 		else
 			oldFirst.prev = first;
-		
 	}
 	
+	/**
+	 * removes an item from the front of the deque.
+	 * @return an item at the front of the deque.
+	 */
 	public Item removeFirst() {
 		if (isEmpty())
 			throw new NoSuchElementException("no element exists on deque.");
@@ -97,6 +101,10 @@ public class Deque<Item> implements Iterable<Item> {
 		return item;
 	}
 	
+	/**
+	 * adds an item at the end of the deque.
+	 * @param item item to be added at the end of the deque.
+	 */
 	public void addLast(Item item) {
 		if (item == null)
 			throw new NullPointerException("null values cannot be inserted.");
@@ -113,6 +121,10 @@ public class Deque<Item> implements Iterable<Item> {
 		}
 	}
 	
+	/**
+	 * removes an item at the end of the deque.
+	 * @return item from the end.
+	 */
 	public Item removeLast() {
 		if (isEmpty())
 			throw new NoSuchElementException("no element exists on deque.");
@@ -126,15 +138,27 @@ public class Deque<Item> implements Iterable<Item> {
 		return item;
 	}
 	
+	/**
+	 * returns an iterator over the elements in the deque 
+	 * from front to end fashion.
+	 * 
+	 */
 	public Iterator<Item> iterator() {
 		return new DequeIterator();
 	}
 	
+	/**
+	 * private structure used to represent each item in this
+	 * data structure.
+	 * @author Ashish Chopra
+	 *
+	 */
 	private class Node {
 		Item item;
 		Node next;
 		Node prev;
 	}
+	
 	
 	private class DequeIterator implements Iterator<Item> {
 		private Node current = first;
