@@ -29,7 +29,6 @@ import java.util.NoSuchElementException;
  * is implemented for generic type of data elements.
  * 
  * @author Ashish Chopra
- *
  * @param <Item>
  */
 public class Deque<Item> implements Iterable<Item> {
@@ -76,8 +75,26 @@ public class Deque<Item> implements Iterable<Item> {
 		first = new Node();
 		first.item = item;
 		first.next = oldFirst;
-		if (last == null) last = first;
+		first.prev = null;
+		if (last == null) 
+			last = first;
+		else
+			oldFirst.prev = first;
 		
+	}
+	
+	public Item removeFirst() {
+		if (isEmpty())
+			throw new NoSuchElementException("no element exists on deque.");
+		
+		Item item = first.item;
+		if (first == last)
+			first = last = null;
+		else {
+			first = first.next;
+			first.prev = null;
+		}
+		return item;
 	}
 	
 	public void addLast(Item item) {
@@ -91,30 +108,20 @@ public class Deque<Item> implements Iterable<Item> {
 			last = new Node();
 			last.item = item;
 			last.next = null;
+			last.prev = oldLast;
 			oldLast.next = last;
 		}
-	}
-	
-	public Item removeFirst() {
-		if (isEmpty())
-			throw new NoSuchElementException("no element exists on deque.");
-		
-		Item item = first.item;
-		if (first == last) {
-			first = first.next;
-			last = first;
-		} else 
-			first = first.next;
-		return item;
 	}
 	
 	public Item removeLast() {
 		if (isEmpty())
 			throw new NoSuchElementException("no element exists on deque.");
 		Item item = last.item;
-		if (first == last) {
-			first = null;
-			last = null;
+		if (first == last)
+			first = last = null;
+		else { 
+			last = last.prev;
+			last.next = null;
 		}
 		return item;
 	}
@@ -126,6 +133,7 @@ public class Deque<Item> implements Iterable<Item> {
 	private class Node {
 		Item item;
 		Node next;
+		Node prev;
 	}
 	
 	private class DequeIterator implements Iterator<Item> {
