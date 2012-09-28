@@ -57,7 +57,7 @@ public class DequeTest implements Test {
 		assert (que.isEmpty());
 		assert (que.size() == 0);
 		
-		/*
+	
 		// test add Last
 		assert (que.size() == 0);
 		que.addLast("quick");
@@ -89,28 +89,5 @@ public class DequeTest implements Test {
 		assert (que.removeFirst().equals("quick"));
 		assert (!que.isEmpty());
 		
-		*/
-		addFrontTest();
-	
 	}
-	
-	private void addFrontTest() {
-	
-		Deque<String> que = new Deque<String>();
-		assert (que.isEmpty());
-		assert (que.size() == 0);
-		
-		que.addFirst("quick");
-		que.addFirst("brown");
-		que.addFirst("fox");
-		que.addFirst("jumps");
-		que.addFirst("over");
-		que.addFirst("little");
-		que.addFirst("lazy");
-		que.addFirst("dog");
-		
-		assert (que.size() == 8);
-		assert (!que.isEmpty());
-	} 
-
 }
