@@ -39,10 +39,18 @@ public class Steque<Item> implements Iterable<Item> {
 		Node next;
 	}
 	
+	/**
+	 * constructs a steque object.
+	 */
 	public Steque() {
 		first = last = null;
 	}
 	
+	
+	/**
+	 * inserts an item in the steque in queue fashion.
+	 * @param item Item to be inserted.
+	 */
 	public void enqueue(Item item) {
 		Node oldLast = last;
 		last = new Node();
@@ -53,6 +61,12 @@ public class Steque<Item> implements Iterable<Item> {
 		else
 			oldLast.next = last;
 	}
+	
+	
+	/**
+	 * inserts an item in the steque in stack fashion.
+	 * @param item Item to be inserted.
+	 */
 	public void push(Item item) {
 		Node oldFirst = first;
 		first = new Node();
@@ -62,6 +76,10 @@ public class Steque<Item> implements Iterable<Item> {
 			last = first;
 	}
 	
+	/**
+	 * pops a least recent item in steque.
+	 * @return Item object from steque.
+	 */
 	public Item pop() {
 		if (isEmpty())
 			throw new NoSuchElementException("No element exists in Steque");
@@ -70,10 +88,18 @@ public class Steque<Item> implements Iterable<Item> {
 		return item;
 	}
 	
+	/**
+	 * checks to see if steque is empty.
+	 * @return true if steque is empty, false otherwise.
+	 */
 	public boolean isEmpty() {
 		return first == null || last == null;
 	}
 	
+	/**
+	 * return the number of elements currently in the steque.
+	 * @return size as integer.
+	 */
 	public int size() {
 		int count = 0;
 		for(Item item : this) {
@@ -82,9 +108,15 @@ public class Steque<Item> implements Iterable<Item> {
 		return count;
 	}
 	
+	/**
+	 * returns an iterator over the elements 
+	 * stored in steque.
+	 * 
+	 */
 	public Iterator<Item> iterator() {
 		return new StequeIterator(); 
 	}
+	
 	
 	public class StequeIterator implements Iterator<Item> {
 		Node current = first;
