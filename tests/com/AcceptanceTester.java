@@ -3,6 +3,7 @@ package com;
 import com.queues.DequeTest;
 import com.queues.RandomizedQueue;
 import com.queues.RandomizedQueueTest;
+import com.queues.StequeTest;
 import com.stacks.FixedCapacityStackOfStringsTest;
 import com.stacks.ResizingCapacityStackOfStringsTest;
 import com.stacks.StackOfStringsTest;
@@ -16,7 +17,7 @@ public class AcceptanceTester {
 		new ResizingCapacityStackOfStringsTest(),
 		new StackTest(),
 		new DequeTest(),
-		new RandomizedQueueTest()
+		new StequeTest()
 	};
 	
 	public static void main(String[] args) {
