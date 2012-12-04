@@ -62,8 +62,6 @@ public class Queue<Item> implements Iterable<Item> {
 		Item item = first.item;
 		first = first.next;
 		return item;
-		
-		
 	}
 	
 	/**
@@ -78,7 +76,7 @@ public class Queue<Item> implements Iterable<Item> {
 	 * returns an iterator over the elements of the queue.
 	 */
 	public Iterator<Item> iterator() {
-		return null;
+		return new QueueIterator();
 	}
 	
 	private class Node {
@@ -88,12 +86,15 @@ public class Queue<Item> implements Iterable<Item> {
 	
 	private class QueueIterator implements Iterator<Item> {
 
+		Node current = first;
 		public boolean hasNext() {
-			return false;
+			return current != null;
 		}
 
 		public Item next() {
-			return null;
+			Item item = current.item;
+			current = current.next;
+			return item;
 		}
 
 		public void remove() {
