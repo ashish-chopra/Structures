@@ -8,6 +8,10 @@
  *  to write a program which accepts this input and produce a well 
  *  paranthesized infix expression as output to the user.
  *  
+ *  For Example: 
+ *  sample input: 3 + 5 ) * 6 - 5 ) * 3 ))
+ *  sample output: ((3 + 5) * ((6 - 5) * 3))
+ *  
  */
 package com.applications;
 

@@ -159,7 +159,11 @@ public class Deque<Item> implements Iterable<Item> {
 		Node prev;
 	}
 	
-	
+	/**
+	 * An iterator implementation for Deque data structure.
+	 * @author Ashish Chopra
+	 *
+	 */
 	private class DequeIterator implements Iterator<Item> {
 		private Node current = first;
 		
@@ -169,7 +173,7 @@ public class Deque<Item> implements Iterable<Item> {
 
 		public Item next() {
 			if(!hasNext())
-				throw new NoSuchElementException("no element exists in deque");
+				throw new NoSuchElementException("no element exists on deque");
 			Item item = current.item;
 			current = current.next;
 			return item;

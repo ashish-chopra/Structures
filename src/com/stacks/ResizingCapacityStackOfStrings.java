@@ -2,20 +2,7 @@
  * File: ResizingCapacityStackOfStrings.java
  * Date: 24 Sept, 2012
  * Author: Ashish Chopra
- * 
- */
-package com.stacks;
-
-/**
- * ResizingCapacityStackOfStrings is a stack implementation using
- * resizale arrays. This removes the defect of earlier implementation which
- * leaks the details through the interface/ API.
- * 
- * @author Ashish Chopra
- * @version 1.0
- */
-
-/*
+ * ---------------------------------------------------------------------
  * Features and defects:
  *  
  * 1. Still it is a stack of Strings.
@@ -27,6 +14,16 @@ package com.stacks;
  *    filling goes to 1/4 of the size.
  * 6. Boundary cases for underflow and overflow are not handled properly.
  * 
+ */
+package com.stacks;
+
+/**
+ * ResizingCapacityStackOfStrings is a stack implementation using
+ * resizale arrays. This removes the defect of earlier implementation which
+ * leaks the details through the interface/ API.
+ * 
+ * @author Ashish Chopra
+ * @version 1.0
  */
 public class ResizingCapacityStackOfStrings {
 

@@ -28,11 +28,10 @@ public class Queue<Item> implements Iterable<Item> {
 	private Node first, last;
 	
 	/**
-	 * creates a new empty Queue object.
-	 * 
+	 * creates a new empty 
+	 * Queue object.
 	 */
 	public Queue() {
-	
 		first = null;
 		last = null;
 	}
@@ -66,7 +65,7 @@ public class Queue<Item> implements Iterable<Item> {
 	
 	/**
 	 * checks to see if queue is empty.
-	 * @return true if queue is empty, false otherwise.
+	 * @return <code>true</code> if queue is empty, <code>false</code> otherwise.
 	 */
 	public boolean isEmpty() {
 		return false;
@@ -78,6 +77,7 @@ public class Queue<Item> implements Iterable<Item> {
 	public Iterator<Item> iterator() {
 		return new QueueIterator();
 	}
+	
 	
 	private class Node {
 		Item item;

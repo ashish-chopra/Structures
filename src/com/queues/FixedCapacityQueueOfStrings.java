@@ -6,7 +6,7 @@
  * 
  * 1. Queue is implemented using arrays.
  * 2. Due to fixed capacity nature of arrays, the implementation
- *    details are exposed via client APIs.
+ *    details are exposed via client APIs which is a big drawback.
  * 3. It implements NoSuchElementException to handle the case of 
  *    queue underflow.
  * 4. The running time complexity is O(1) and memory usage is also less
