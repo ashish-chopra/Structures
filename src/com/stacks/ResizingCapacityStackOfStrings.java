@@ -1,6 +1,7 @@
 /*
  * File: ResizingCapacityStackOfStrings.java
- * Date: 24 Sept, 2012
+ * Date Created: 24 Sept, 2012
+ * Last Modified: 2 Feb, 2013
  * Author: Ashish Chopra
  * ---------------------------------------------------------------------
  * Features and defects:
@@ -30,17 +31,28 @@ public class ResizingCapacityStackOfStrings {
 	private String[] items;
 	private int N;
 	
+	/**
+	 * constructs a new Stack Object.
+	 */
 	public ResizingCapacityStackOfStrings() {
 		items = new String[1];
 		N = 0;
 	}
 	
+	/**
+	 * inserts an item into the stack.
+	 * @param item A String to be added onto the stack.
+	 */
 	public void push(String s) {
 		if (N == items.length) 
 			resize(2 * items.length);
 		items[N++] = s;
 	}
 	
+	/**
+	 * removes the last item inserted in the stack.
+	 * @return an item inserted recently as String.
+	 */
 	public String pop() {
 		if (N > 0 && N == items.length / 4) 
 			resize(items.length / 2);
@@ -49,13 +61,22 @@ public class ResizingCapacityStackOfStrings {
 		return s;
 	}
 	
+	/**
+	 * returns the number of elements in the stack.
+	 * @return the size of stack as integer.
+	 */
 	public int size() {
 		return N;
 	}
 	
+	/**
+	 * checks to see if stack is empty.
+	 * @return true if stack is empty, false otherwise.
+	 */
 	public boolean isEmpty() {
 		return N == 0;
 	}
+	
 	
 	private void resize(int size) {
 		String[] newItems = new String[size];

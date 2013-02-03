@@ -1,14 +1,29 @@
 /*
  * File: ResizingQueueOfStrings.java
  * Date: 24 Sept, 2012
+ * Last Modified: 2 Feb, 2013
  * Author: Ashish Chopra
  * ----------------------------------------------
  * 
+ * 1. This structure is free from leaking out the implementation
+ *    details through client API.
+ * 2. It is still used to store "String" items.
+ * 3. The queue is resized on certain time in its whole usage cycle due to
+ *    which the amortized complexity of is O(N).
+ *    
  */
 package com.queues;
 
 import java.util.NoSuchElementException;
 
+/**
+ * ResizingQueueOfStrings is a queue data structure developed to store
+ * String items in first-in-first-out principle. It supports enqueue operation
+ * to insert a string item and dequeue to remove the item from the queue.
+ * 
+ * @author Ashish Chopra
+ * @version 1.0
+ */
 public class ResizingQueueOfStrings {
 
 	private String items[];
