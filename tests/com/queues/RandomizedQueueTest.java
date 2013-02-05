@@ -29,6 +29,10 @@ public class RandomizedQueueTest implements Test {
 		rq.sample();
 		assert (rq.size() == 2);
 		
+		//test dequeue
+		rq.dequeue();
+		rq.dequeue();
+		assert (rq.size() == 0);
 	}
 
 }

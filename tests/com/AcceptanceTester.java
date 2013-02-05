@@ -17,7 +17,8 @@ public class AcceptanceTester {
 		new ResizingCapacityStackOfStringsTest(),
 		new StackTest(),
 		new DequeTest(),
-		new StequeTest()
+		new StequeTest(),
+		new RandomizedQueueTest()
 	};
 	
 	public static void main(String[] args) {
