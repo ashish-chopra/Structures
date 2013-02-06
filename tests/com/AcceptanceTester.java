@@ -1,5 +1,6 @@
 package com;
 
+import com.bags.BagsTest;
 import com.queues.DequeTest;
 import com.queues.RandomizedQueue;
 import com.queues.RandomizedQueueTest;
@@ -18,7 +19,8 @@ public class AcceptanceTester {
 		new StackTest(),
 		new DequeTest(),
 		new StequeTest(),
-		new RandomizedQueueTest()
+		new RandomizedQueueTest(),
+		new BagsTest()
 	};
 	
 	public static void main(String[] args) {
