@@ -11,6 +11,7 @@ public class BagsTest implements Test {
 		// testing the initial size of the bag.
 		Bag<Integer> balls = new Bag<Integer>();
 		assert (balls.isEmpty());
+		assert (balls.size() == 0);
 		
 		// testing add operation
 		balls.add(4);
@@ -22,15 +23,15 @@ public class BagsTest implements Test {
 		
 		// testing remove operation
 		Iterator<Integer> it = balls.iterator();
-		try {
 			while (it.hasNext()) {
-				it.remove();
+				try {
+					it.remove();
+				} catch (UnsupportedOperationException e) {
+					assert (true);
+				} catch (Throwable ex) {
+					assert (false);
+				}
 			}
-		} catch (UnsupportedOperationException e) {
-			assert (false);
-		} catch (Throwable ex) {
-			assert (false);
-		}
 	}
 
 }
