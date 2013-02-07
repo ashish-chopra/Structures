@@ -2,13 +2,13 @@ package com;
 
 import com.bags.BagsTest;
 import com.queues.DequeTest;
-import com.queues.RandomizedQueue;
 import com.queues.RandomizedQueueTest;
 import com.queues.StequeTest;
 import com.stacks.FixedCapacityStackOfStringsTest;
 import com.stacks.ResizingCapacityStackOfStringsTest;
 import com.stacks.StackOfStringsTest;
 import com.stacks.StackTest;
+import com.unions.UnionFindTest;
 
 public class AcceptanceTester {
 
@@ -20,7 +20,8 @@ public class AcceptanceTester {
 		new DequeTest(),
 		new StequeTest(),
 		new RandomizedQueueTest(),
-		new BagsTest()
+		new UnionFindTest()
+		
 	};
 	
 	public static void main(String[] args) {
