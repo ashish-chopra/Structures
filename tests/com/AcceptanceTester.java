@@ -8,6 +8,7 @@ import com.stacks.FixedCapacityStackOfStringsTest;
 import com.stacks.ResizingCapacityStackOfStringsTest;
 import com.stacks.StackOfStringsTest;
 import com.stacks.StackTest;
+import com.unions.QuickUFTest;
 import com.unions.UnionFindTest;
 
 public class AcceptanceTester {
@@ -20,7 +21,8 @@ public class AcceptanceTester {
 		new DequeTest(),
 		new StequeTest(),
 		new RandomizedQueueTest(),
-		new UnionFindTest()
+		new UnionFindTest(),
+		new QuickUFTest()
 		
 	};
 	

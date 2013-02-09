@@ -60,6 +60,18 @@ public class QuickUF {
 		return root(p) == root(q);
 	}
 
+	/**
+	 * returns string representation of current state
+	 * of QuickUF object. Useful for testing.
+	 * 
+	 */
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for(int i: id) {
+			sb.append(i);
+		}
+		return sb.toString();
+	}
 	
 	private int root(int n) {
 		int i = n;
@@ -68,4 +80,5 @@ public class QuickUF {
 		}
 		return i;
 	}
+	
 }
