@@ -10,6 +10,7 @@ import com.stacks.StackOfStringsTest;
 import com.stacks.StackTest;
 import com.unions.QuickUFTest;
 import com.unions.UnionFindTest;
+import com.unions.WeightedQuickUFTest;
 
 public class AcceptanceTester {
 
@@ -22,7 +23,8 @@ public class AcceptanceTester {
 		new StequeTest(),
 		new RandomizedQueueTest(),
 		new UnionFindTest(),
-		new QuickUFTest()
+		new QuickUFTest(),
+		new WeightedQuickUFTest()
 		
 	};
 	
