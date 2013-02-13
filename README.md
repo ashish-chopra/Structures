@@ -6,13 +6,24 @@ The de-merits of one ADT leads to the motivation of creating another ADT, so you
 
 How to run?
 ----------------
-Structures is a shadow of java project created in eclipse, it contains an in-house developed framework to run test suites. In order to run it on you machine, clone the repo and import the project in your IDE.
+Structures is a shadow of java project created in eclipse, it contains an in-house developed framework to run test suites. In order to run it on you machine, clone the repo and import the project in your IDE. 
+Run `AcceptanceTester` class in `tests/com` folder. Please add VM arguments `-ea` to enable assertions in JVM.
 
-TODO: code to run
+We have also built an ant script to compile, run and generate javadocs through command line. In order to build through ant script `build.xml`, please ensure that you have ant installed on your system. Then browse to 
+`Structures/` and run following commands on command line:
+
+    >$ ant                      // it builds complete project and runs the test suite automatically.
+    >$ ant run                  // it runs the test suite only.
+    >$ ant docs                 // it generates the javadoc inside 'Structures/docs/'
 
 I found a bug/new feature!
 ---------------------------
+Structures' bugs are tracked using [Github Issue tracker system](https://github.com/ashish-chopra/Structures/issues).
 
+Please use issue tracker for following purpose:
+ 1. to raise a bug request; do include specific details and label it appropriately.
+ 2. to suggest any improvements in existing features.
+ 3. to suggest new features or structures or applications.
 
 I want to contribute!
 -------------------------
