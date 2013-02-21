@@ -116,24 +116,28 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	private class RandomQueueIterator implements Iterator<Item> {
 		
 		private int current;
-		private Item[] list;
+		private Item[] data;
 		
 		public RandomQueueIterator() {
 			current = 0;
-			list = (Item[]) new Object[N];
+			data = (Item[]) new Object[N];
 			for (int i = 0; i < N; i++) {
-				list[i] = items[i];
+				data[i] = items[i];
 			}
 		}
 
 		public boolean hasNext() {
-			return current != N;
+			return current != 0;
 		}
 	
 		public Item next() {
 			if (!hasNext())
 				throw new NoSuchElementException("no elements on the list by the way :(");
-			Item item = items[current++];
+			int index = randomGenerator.nextInt(current);
+			Item item = data[index];
+			data[index] = data[current - 1];
+			data[current - 1] = item;
+			current--;
 			return item;
 		}
 
