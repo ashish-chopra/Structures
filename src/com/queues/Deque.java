@@ -14,7 +14,7 @@
  *  It throws:
  *  1. NullPointerException when null element is inserted.
  *  2. NoSuchElementException when remove operation is performed on empty queue.
- *  3. UnsupportedOperationException when iterator's remove methos is invoked.
+ *  3. UnsupportedOperationException when iterator's remove method is invoked.
  *    
  */
 package com.queues;

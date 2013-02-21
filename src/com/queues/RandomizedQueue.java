@@ -1,5 +1,5 @@
 /*
- * File: ResizingQueueOfStrings.java
+ * File: RandomizedQueue.java
  * Date: 24 Sept, 2012
  * Last Modified: 2 Feb, 2013
  * Author: Ashish Chopra
@@ -79,6 +79,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		items[index] = items[N-1];
 		items[N-1] = null;
 		N--;
+		if (N > 0 && N == items.length / 4) resize(items.length / 2);
 		return item;
 	}
 	
@@ -114,13 +115,24 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	
 	private class RandomQueueIterator implements Iterator<Item> {
 		
-		private int current = 0;
+		private int current;
+		private Item[] list;
+		
+		public RandomQueueIterator() {
+			current = 0;
+			list = (Item[]) new Object[N];
+			for (int i = 0; i < N; i++) {
+				list[i] = items[i];
+			}
+		}
 
 		public boolean hasNext() {
 			return current != N;
 		}
 	
 		public Item next() {
+			if (!hasNext())
+				throw new NoSuchElementException("no elements on the list by the way :(");
 			Item item = items[current++];
 			return item;
 		}
