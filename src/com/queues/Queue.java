@@ -68,7 +68,7 @@ public class Queue<Item> implements Iterable<Item> {
 	 * @return <code>true</code> if queue is empty, <code>false</code> otherwise.
 	 */
 	public boolean isEmpty() {
-		return false;
+		return first == null && last == null;
 	}
 	
 	/**
