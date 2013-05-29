@@ -27,6 +27,11 @@ public class Josephus {
 
 	private Queue<Integer> people;
 	private int N;
+	/**
+	 * constucts a new Josephus object to 
+	 * execute with the initial number of people.
+	 * @param N number of people as <code>int</code>.
+	 */
 	public Josephus(int N) {
 		if (N <= 0)
 			throw new IllegalArgumentException("You have entered a bad N :(");
@@ -37,6 +42,12 @@ public class Josephus {
 		}
 	}
 	
+	/**
+	 * executes the person on the position specified by the
+	 * argument.
+	 * @param M position of a person as <code>int</code>.
+	 * @return sequence of execution as <code>String</code>
+	 */
 	public String execute(int M) {
 		if (M < 1 || M >= N)
 			throw new IllegalArgumentException("M is out of range!");
@@ -47,6 +58,10 @@ public class Josephus {
 		return sequence;
 	}
 	
+	/*
+	 * removes the person from the data structure
+	 * persistently.
+	 */
 	private String removeAt(int index) {
 		int count = 1;
 		while (count < index) {
