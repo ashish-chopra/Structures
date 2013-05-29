@@ -26,7 +26,7 @@ import java.util.NoSuchElementException;
 public class Queue<Item> implements Iterable<Item> {
 
 	private Node first, last;
-	
+
 	/**
 	 * creates a new empty 
 	 * Queue object.
@@ -68,9 +68,9 @@ public class Queue<Item> implements Iterable<Item> {
 	 * @return <code>true</code> if queue is empty, <code>false</code> otherwise.
 	 */
 	public boolean isEmpty() {
-		return first == null && last == null;
+		return first == null;
 	}
-	
+
 	/**
 	 * returns an iterator over the elements of the queue.
 	 */
