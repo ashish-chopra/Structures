@@ -74,8 +74,13 @@ public class Josephus {
 	
 	// Unit Test 
 	public static void main(String[] args) {
-		Josephus josephus = new Josephus(7);
-		String sequence = josephus.execute(2);
-		System.out.println(sequence);
+		if (args.length != 0) {
+			Josephus josephus = new Josephus(Integer.parseInt(args[0]));
+			String sequence = josephus.execute(Integer.parseInt(args[1]));
+			System.out.println(sequence);
+		} else {
+			throw new IllegalArgumentException("Command line arguments are not provided as required :(");
+		}
+		
 	}
 }

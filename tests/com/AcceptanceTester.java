@@ -1,5 +1,6 @@
 package com;
 
+import com.applications.RingBufferTest;
 import com.bags.BagsTest;
 import com.queues.DequeTest;
 import com.queues.RandomizedQueueTest;
@@ -24,7 +25,8 @@ public class AcceptanceTester {
 		new RandomizedQueueTest(),
 		new UnionFindTest(),
 		new QuickUFTest(),
-		new WeightedQuickUFTest()
+		new WeightedQuickUFTest(),
+		new RingBufferTest()
 		
 	};
 	
