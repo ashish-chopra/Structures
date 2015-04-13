@@ -1,3 +1,11 @@
+
+NOTE: 
+=======================
+I am planning to port this ant based project into maven project structure. The side effect of this would be change in the way the code is setup. Changes might be expected in package structure. We will still use acceptanceTester class to check our tests.
+
+In case if the user of this project have any comments, please send me to `sendtoashishchopra@gmail.com`.
+
+
 Welcome to Structures!
 ------------------------
 Structures is a nice compilation of abstract data structures that we could think of! Since its inception, it is growing slowly into a mangnificent collection of ADT journal. We have written the intuition behind developing each structure in its code as introductory code block with algorithm analysis and its merits and de-merits.
