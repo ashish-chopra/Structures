@@ -1,5 +1,6 @@
 package com;
 
+import com.applications.IdenticalsTest;
 import com.applications.RingBufferTest;
 import com.bags.BagsTest;
 import com.queues.DequeTest;
@@ -26,7 +27,8 @@ public class AcceptanceTester {
 		new UnionFindTest(),
 		new QuickUFTest(),
 		new WeightedQuickUFTest(),
-		new RingBufferTest()
+		new RingBufferTest(),
+		new IdenticalsTest()
 		
 	};
 	
