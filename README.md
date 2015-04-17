@@ -1,19 +1,21 @@
 
 [Updates]
 ------------
-We've been migrated to Maven project structure recently. Continue reading to know more!
+We've been migrated to Maven project structure recently. 
 I have also included the `Stdlib.jar` developed by Robert Sedgewick, Kevin Wayne and Peter Reutemann to write visual test cases in future.
 
+Continue reading to know more!
 
 Welcome to Structures!
 ------------------------
 Structures is a nice compilation of abstract data structures that we could think of! Since its inception, it is growing slowly into a mangnificent collection of ADT journal. We have written the intuition behind developing each structure in its code as introductory code block with algorithm analysis and its merits and de-merits.
+
 The de-merits of one ADT leads to the motivation of creating another ADT, so you will find it like a chain story to browse :P
 
 
 Why Maven?
 --------------
-Well Maven is cute and simple. See the no. of files in the root directory - It's so less than before! No eclipse specific `.classpath` or `.project` required any more!. No `jars` required anymore! Maven converts your offline development mode to online mode. Just like your 3G network, it is always connected to central repository!
+Well Maven is cute and simple. See the no. of files in the root directory - It's so less than before! No eclipse specific `.classpath` or `.project` required any more!. No `jars` required anymore! Maven converts your offline development mode to online mode. Just like your 3G network, it is always connected to central repository.
 So enjoy being online!
 
 
