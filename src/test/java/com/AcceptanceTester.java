@@ -26,10 +26,7 @@ public class AcceptanceTester {
 		new RandomizedQueueTest(),
 		new UnionFindTest(),
 		new QuickUFTest(),
-		new WeightedQuickUFTest(),
-		new RingBufferTest(),
-		new IdenticalsTest()
-		
+		new WeightedQuickUFTest()
 	};
 	
 	public static void main(String[] args) {
