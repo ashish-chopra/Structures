@@ -17,9 +17,7 @@ import com.unions.WeightedQuickUFTest;
 public class AcceptanceTester {
 
 	private static final Test[] tests = {
-		new UnionFindTest(),
-		new QuickUFTest(),
-		new WeightedQuickUFTest()
+
 	};
 	
 	public static void main(String[] args) {

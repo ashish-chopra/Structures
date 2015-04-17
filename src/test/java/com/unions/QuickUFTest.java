@@ -1,10 +1,10 @@
 package com.unions;
 
-import com.Test;
+import junit.framework.TestCase;
 
-public class QuickUFTest implements Test {
+public class QuickUFTest extends TestCase {
 
-	public void run() {
+	public void testOperations() {
 		
 		int N = 10;
 		QuickUF uf = new QuickUF(N);
@@ -13,9 +13,9 @@ public class QuickUFTest implements Test {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if (i == j)
-					assert (uf.find(i, j));
+					assertEquals(true, uf.find(i, j));
 				else
-					assert (!uf.find(i, j));
+					assertEquals(false, uf.find(i, j));
 			}
 		}
 		
@@ -23,8 +23,8 @@ public class QuickUFTest implements Test {
 		uf.union(7, 3);
 		uf.union(5, 7);
 		uf.union(2, 3);
-		assert (uf.find(1, 3));
-		assert (!uf.find(2, 4));
+		assertEquals(true, uf.find(1, 3));
+		assertEquals(false, uf.find(2, 4));
 		
 		// an actual use case test
 		uf = new QuickUF(N);
@@ -36,7 +36,7 @@ public class QuickUFTest implements Test {
 		uf.union(8, 5);
 
 		String expected = "6126439399";
-		assert (expected.equals(uf.toString()));
+		assertEquals(expected, uf.toString());
 
 	}
 

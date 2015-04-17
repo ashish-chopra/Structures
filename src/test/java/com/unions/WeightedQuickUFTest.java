@@ -1,11 +1,11 @@
 package com.unions;
 
-import com.Test;
+import junit.framework.TestCase;
 
-public class WeightedQuickUFTest implements Test {
+public class WeightedQuickUFTest extends TestCase {
 
 	
-	public void run() {
+	public void testOperations() {
 		int N = 10;
 		WeightedQuickUF uf = new WeightedQuickUF(N);
 
@@ -19,7 +19,7 @@ public class WeightedQuickUFTest implements Test {
 		uf.union(7, 5);
 		
 		String expected = "2222782771";
-		assert (expected.equals(uf.toString()));
+		assertEquals(expected, uf.toString());
 		
 	}
 
