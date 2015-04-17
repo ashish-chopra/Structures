@@ -21,7 +21,7 @@ So enjoy being online!
 
 How to run?
 ----------------
-Structures is a maven project now. You must have Git, Maven and Eclipse (optional) installed in your machine. Follow the steps mentioned below:
+Structures is a maven project now. You must have any latest version of Git, Maven and Eclipse (optional) installed in your machine and follow the steps mentioned below:
 
    Clone the repo using command and generate eclipse project files:
 
@@ -32,7 +32,18 @@ Structures is a maven project now. You must have Git, Maven and Eclipse (optiona
     >$ mvn eclipse:eclipse           // it generates the eclipse specific files, so that 
                                      // you can import this project into eclipse
 
+   If you are not using Eclipse, then you can convert it into your IDE specific project. For this, consult Maven's website.
+   
+   Then, Import the project into Eclipse by File > Import > Existing Maven Project into Workspace
+   
+   Now, we converted the old test cases into Junits, so running the same becomes super easy! But i still miss my old in-house developed testing framework :(
 
+    >$ mvn compile     // this will only compile your source code
+    >$ mvn test        // this will run the test suite
+
+   You can run these commands from command line inside your `Structures` directory. 
+   
+   Or using Eclipse by right click `Structures > Run As > Maven Build ...`
 
 I found a bug/new feature!
 ---------------------------
