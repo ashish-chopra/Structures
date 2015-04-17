@@ -1,36 +1,36 @@
 package com.stacks;
 
-import com.Test;
+import junit.framework.TestCase;
 
-public class FixedCapacityStackOfStringsTest implements Test{
+public class FixedCapacityStackOfStringsTest extends TestCase {
 
-	public void run() {
+	public void testStackOperations() {
 		
 		//testing empty stack
 		FixedCapacityStackOfStrings stack = new FixedCapacityStackOfStrings(10);
-		assert (stack.isEmpty());
-		assert (stack.size() == 0);
+		assertEquals(true, stack.isEmpty());
+		assertEquals(0, stack.size());
 		
 		// testing push
 		stack.push("quick");
 		stack.push("brown");
 		stack.push("fox");
-		assert (!stack.isEmpty());
-		assert (stack.size() == 3);
+		assertEquals(false, stack.isEmpty());
+		assertEquals(3, stack.size());
 		
 		// testing pop
-		assert (stack.pop().equals("fox"));
-		assert (stack.pop().equals("brown"));
-		assert (stack.size() == 1);
-		assert (stack.pop().equals("quick"));
-		assert (stack.isEmpty());
-		assert (stack.size() == 0);
+		assertEquals("fox", stack.pop());
+		assertEquals("brown", stack.pop());
+		assertEquals(1, stack.size());
+		assertEquals("quick", stack.pop());
+		assertEquals(true, stack.isEmpty());
+		assertEquals(0, stack.size());
 		
 		// testing underflow
 		try {
 			stack.pop();
 		} catch (ArrayIndexOutOfBoundsException e) {
-			assert true;
+			assertNotNull(e);
 		}
 			
 		

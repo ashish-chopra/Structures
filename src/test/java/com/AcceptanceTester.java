@@ -17,10 +17,6 @@ import com.unions.WeightedQuickUFTest;
 public class AcceptanceTester {
 
 	private static final Test[] tests = {
-		new StackOfStringsTest(),
-		new FixedCapacityStackOfStringsTest(),
-		new ResizingCapacityStackOfStringsTest(),
-		new StackTest(),
 		new UnionFindTest(),
 		new QuickUFTest(),
 		new WeightedQuickUFTest()

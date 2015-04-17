@@ -1,10 +1,10 @@
 package com.stacks;
 
-import com.Test;
+import junit.framework.TestCase;
 
-public class StackTest extends Stack implements Test {
+public class StackTest extends TestCase {
 
-	public void run() {
+	public void testStack() {
 	
 		Stack<String> stack = new Stack<String>();
 		stack.push("quick");
@@ -16,7 +16,7 @@ public class StackTest extends Stack implements Test {
 		stack.push("lazy");
 		stack.push("dog");
 		
-		assert stack.size() == 8;
+		assertEquals(8,  stack.size()); 
 	}
 	
 	
