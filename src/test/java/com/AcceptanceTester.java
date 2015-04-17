@@ -1,19 +1,29 @@
+/*
+ * 
+ *  File:   AcceptanceTester.java
+ *  Author: Ashish Chopra
+ *  Date:   17 Apr, 2015
+ *  ---------------------------------------------
+ *  This file is no more in use since Maven is introduced.
+ *  All the test cases are converted into Junits.
+ * 
+ */
 package com;
 
-import com.applications.IdenticalsTest;
-import com.applications.RingBufferTest;
-import com.bags.BagsTest;
-import com.queues.DequeTest;
-import com.queues.RandomizedQueueTest;
-import com.queues.StequeTest;
-import com.stacks.FixedCapacityStackOfStringsTest;
-import com.stacks.ResizingCapacityStackOfStringsTest;
-import com.stacks.StackOfStringsTest;
-import com.stacks.StackTest;
-import com.unions.QuickUFTest;
-import com.unions.UnionFindTest;
-import com.unions.WeightedQuickUFTest;
+/**
+ * <code>AcceptanceTester</code> was designed with v1.0 release to implement
+ * the test in-house test framework. It consists of a collection
+ * of test cases which implements <code>Test</code> interface.
+ * 
+ * This <code>AcceptanceTester</code> runs the <code>run()</code> method of each test case.
+ * With the introduction of maven, this class is no more used. Hence
+ * just kept for archive purpose only. 
+ * 
+ * @author Ashish Chopra
+ * @since 1.0
+ */
 
+@Deprecated
 public class AcceptanceTester {
 
 	private static final Test[] tests = {
