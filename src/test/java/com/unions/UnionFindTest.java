@@ -4,7 +4,7 @@ import com.Test;
 
 public class UnionFindTest implements Test {
 
-	@Override
+	
 	public void run() {
 		
 		// initialize with 10 objects and

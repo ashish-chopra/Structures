@@ -1,67 +1,82 @@
 package com.applications;
 
 import java.util.NoSuchElementException;
+import junit.framework.TestCase;
 
-import com.Test;
 
-public class RingBufferTest implements Test{
+public class RingBufferTest extends TestCase {
 
-	public void run() {
+	public void testBasicOperations() {
 		
 		RingBuffer rb = new RingBuffer(10);
-		assert (rb.size() == 0);
-		assert (rb.isEmpty());
-		assert (rb.isFull() == false);
+		assertEquals(0, rb.size());
+		assertEquals(true, rb.isEmpty());
+		assertEquals(false, rb.isFull());
 		try {
 			rb.dequeue();
 		} catch (NoSuchElementException e) {
-			assert true;
+			assertNotNull(e);
 		} catch (Exception ex) {
-			assert false;
+			assertNull(ex);
 		}
-		
+	}
+	
+	public void testCreationMethod() {
 		try {
-			rb = new RingBuffer(0);
+			RingBuffer rb = new RingBuffer(0);
 		} catch (IllegalArgumentException e) {
-			assert true;
+			assertNotNull(e);
 		} catch (Exception ex) {
-			assert false;
+			assertNull(ex);
 		}
+	}
+	
+	public void testEnqueue() {
 		
 		// testing enqueue operation
-		rb = new RingBuffer(4);
-		assert (rb.size() == 0);
+		RingBuffer rb = new RingBuffer(4);
+		assertEquals(0, rb.size());
 		
 		rb.enqueue("a");
 		rb.enqueue("b");
-		assert (rb.size() == 2);
+		assertEquals(2, rb.size());
 		
 		rb.enqueue("c");
 		rb.enqueue("d");
-		assert (rb.size() == 4);
+		assertEquals(4, rb.size());
 		
 		try {
 			rb.enqueue("f");
 		} catch (RuntimeException ex) {
-			assert (rb.isFull());
+			assertNotNull(ex);
 		} catch (Exception e) {
-			assert false;
+			assertNull(e);
 		}
 		
+	}
+	
+	public void testDequeue() {
+		
+		RingBuffer rb = new RingBuffer(4);	
+		rb.enqueue("a");
+		rb.enqueue("b");	
+		rb.enqueue("c");
+		rb.enqueue("d");
+		
 		String item = rb.dequeue();
-		assert (item.equals("a"));
+		assertEquals(true, item.equals("a"));
 		
 		item = rb.dequeue();
-		assert(item.equals("b"));
-		assert (rb.isFull() == false);
+		assertEquals(true,item.equals("b"));
+		assertEquals(false, rb.isFull());
 		
 		item = rb.dequeue();
 		rb.enqueue("f");
-		assert (rb.isFull() == false);
-		assert (rb.size() == 3);
+		assertEquals(false, rb.isFull());
+		assertEquals(3, rb.size());
 		rb.enqueue("g");
-		assert (rb.size() == 4);
+		assertEquals(4, rb.size());
 		item = rb.dequeue();
-		assert (item.equals("d"));
+		assertEquals(true, item.equals("d"));
 	}
 }
