@@ -1,65 +1,73 @@
 package com.queues;
 
 import java.util.NoSuchElementException;
+
+import junit.framework.TestCase;
+
 import com.Test;
 
-public class DequeTest implements Test {
+public class DequeTest extends TestCase {
 
-	public void run() {
-
+	public void testEmpty() {
 		
 		// test empty deque
 		Deque<String> que = new Deque<String>();
-		assert (que.size() == 0);
-		assert (que.isEmpty());
+		assertEquals(0, que.size());
+		assertEquals(true, que.isEmpty());
+	}
+	
+	public void testInsertDeleteOperations() {
+		
+		Deque<String> que = new Deque<String>();
+		assertEquals(0, que.size());
 		
 		// test add front 
 		que.addFirst("quick");
 		que.addFirst("brown");
 		que.addFirst("fox");
 		que.addFirst("jumps");
-		assert (que.size() == 4);
-		assert (!que.isEmpty());
+		assertEquals(4, que.size());
+		assertEquals(false, que.isEmpty());
 		
 		//check null condition in addFront
 		try {
 			que.addFirst(null);
 		} catch (NullPointerException e) {
-			assert true;
+			assertNotNull(e);;
 		} catch (Exception e) {
-			assert false;
+			assertNull(e);
 		}
 	
 		// test remove front
-		assert (que.removeFirst().equals("jumps"));
-		assert (que.removeFirst().equals("fox"));
-		assert (que.removeFirst().equals("brown"));
-		assert (que.size() == 1);
-		assert (que.removeFirst().equals("quick"));
-		assert (que.isEmpty());
+		assertEquals("jumps", que.removeFirst());
+		assertEquals("fox", que.removeFirst());
+		assertEquals("brown", que.removeFirst());
+		assertEquals(1, que.size());
+		assertEquals("quick", que.removeFirst());
+		assertEquals(true, que.isEmpty());
 		
 		// check underflow condition
 		try {
 			que.removeFirst();
 		}  catch (NoSuchElementException e) {
-			assert true;
+			assertNotNull(e);
 		} catch (Throwable e) {
-			assert false;
+			assertNull(e);;
 		}
 		
 		que.addFirst("incredible");
 		que.removeFirst();
-		assert (que.isEmpty());
-		assert (que.size() == 0);
+		assertEquals(true, que.isEmpty());
+		assertEquals(0, que.size());
 		
 		que.addFirst("incredible");
 		que.removeLast();
-		assert (que.isEmpty());
-		assert (que.size() == 0);
+		assertEquals(true, que.isEmpty());
+		assertEquals(0, que.size());
 		
 	
 		// test add Last
-		assert (que.size() == 0);
+		assertEquals(0, que.size());
 		que.addLast("quick");
 		que.addLast("brown");
 		que.addLast("fox");
@@ -68,26 +76,26 @@ public class DequeTest implements Test {
 		que.addLast("little");
 		que.addLast("lazy");
 		que.addLast("dog");
-		assert (!que.isEmpty());
-		assert (que.size() == 8);
+		assertEquals(false, que.isEmpty());
+		assertEquals(8, que.size());
 		
 		// try null addition at last
 		try {
 			que.addLast(null);
 		} catch (NullPointerException e) {
-			assert true;
+			assertNotNull(e);
 		} catch (Throwable e) {
-			assert false;
+			assertNull(e);;
 		}
 		
 		// test remove last
-		assert (que.size() == 8);
+		assertEquals(8, que.size());
 		que.removeLast();
 		que.removeLast();
-		assert (que.size() == 6);
-		assert (que.removeLast().equals("little"));
-		assert (que.removeFirst().equals("quick"));
-		assert (!que.isEmpty());
+		assertEquals(6, que.size());
+		assertEquals("little", que.removeLast());
+		assertEquals("quick", que.removeFirst());
+		assertEquals(false, que.isEmpty());
 		
 	}
 }

@@ -21,9 +21,6 @@ public class AcceptanceTester {
 		new FixedCapacityStackOfStringsTest(),
 		new ResizingCapacityStackOfStringsTest(),
 		new StackTest(),
-		new DequeTest(),
-		new StequeTest(),
-		new RandomizedQueueTest(),
 		new UnionFindTest(),
 		new QuickUFTest(),
 		new WeightedQuickUFTest()

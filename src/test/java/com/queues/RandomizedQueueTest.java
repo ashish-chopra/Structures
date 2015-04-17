@@ -1,38 +1,38 @@
 package com.queues;
 
-import com.Test;
+import junit.framework.TestCase;
 
-public class RandomizedQueueTest implements Test {
+public class RandomizedQueueTest extends TestCase {
 
-	public void run() {
+	public void testRandomQueue() {
 		
 		//test empty queue
 		RandomizedQueue<Integer> rq = new RandomizedQueue<Integer>();
-		assert (rq.size() == 0);
-		assert (rq.isEmpty());
+		assertEquals(0, rq.size());
+		assertEquals(true, rq.isEmpty());
 		
 		// test enqueue operation
 		rq.enqueue(10);
 		rq.enqueue(5);
 		rq.enqueue(100);
 		rq.enqueue(2);
-		assert (!rq.isEmpty());
-		assert (rq.size() == 4);
+		assertEquals(false, rq.isEmpty());
+		assertEquals(4, rq.size());
 		
 		//test dequeue
 		rq.dequeue();
 		rq.dequeue();
-		assert (rq.size() == 2);
+		assertEquals(2, rq.size());
 		
 		// test sample
 		rq.sample();
 		rq.sample();
-		assert (rq.size() == 2);
+		assertEquals(2, rq.size());
 		
 		//test dequeue
 		rq.dequeue();
 		rq.dequeue();
-		assert (rq.size() == 0);
+		assertEquals(0, rq.size());
 	}
 
 }
