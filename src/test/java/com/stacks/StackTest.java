@@ -16,8 +16,11 @@ public class StackTest extends TestCase {
 		stack.push("lazy");
 		stack.push("dog");
 		
-		assertEquals(8,  stack.size()); 
+		assertEquals("dog",stack.peek());		
+		assertEquals(8,  stack.size());		
+		stack.pop();
+		assertEquals("lazy",stack.peek());
 	}
 	
-	
+		
 }

@@ -70,6 +70,17 @@ public class Stack<Item> implements Iterable<Item> {
 	}
 	
 	/**
+	 * retrieves the last item inserted in the stack, but does not remove
+	 * @return an item inserted recently.
+	 */
+	public Item peek() {
+		if(isEmpty())
+			throw new NoSuchElementException("No item present on stack");
+		Item item = first.item;
+		return item;
+	}
+	
+	/**
 	 * checks to see if stack is empty.
 	 * @return true if stack is empty, false otherwise.
 	 */
