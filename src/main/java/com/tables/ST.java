@@ -14,20 +14,24 @@
  */
 package com.tables;
 
+import com.queues.Queue;
+
 
 public class ST<Key extends Comparable<Key>, Value> {
 	private Key[] keys;
 	private Value[] vals;
 	private int N;
+	private int capacity = 2;
 	
 	/**
 	 * creates a new symbol table object
 	 * @param capacity size of the symbol table as int.
 	 */
-	public ST(int capacity) {
-		keys = (Key[]) new Object[capacity];
-		vals = (Value[]) new Object[capacity];
-		N = 0;
+	@SuppressWarnings("unchecked")
+	public ST() {
+		this.keys = (Key[]) new Object[capacity];
+		this.vals = (Value[]) new Object[capacity];
+		this.N = 0;
 		
 	}
 
@@ -48,6 +52,16 @@ public class ST<Key extends Comparable<Key>, Value> {
 	}
 	
 	
+	/**
+	 * inserts the given key-value pair in the symbol table
+	 * if not present already. In case key is found, then 
+	 * corresponding value is replaced.
+	 * 
+	 * if value is null, then key will be deleted from the table.
+	 * @param key
+	 * @param val
+	 */
+	@SuppressWarnings("unchecked")
 	public void put(Key key, Value val) {
 		if (key == null)
 			throw new IllegalArgumentException("key is null");
@@ -56,12 +70,33 @@ public class ST<Key extends Comparable<Key>, Value> {
 		if ( i < N && key.compareTo(keys[i]) == 0) {
 			vals[i] = val;
 			return;
-		} else {
-			// to do.
 		}
 		
+		if (size() == capacity) {
+			keys = (Key[]) resize(keys, capacity * 2);
+			vals = (Value[]) resize(vals, capacity * 2);
+			capacity = capacity * 2;
+		}
+		
+		for (int j = N; j > i; j--) {
+			keys[j] = keys[j-1];
+			vals[j] = vals[j-1];
+		}
+		keys[i] = key;
+		vals[i] = val;
+		N++;
 	}
 	
+	/*
+	 * resizes the array incase it is filled.
+	 */
+	private Object[] resize(Object[] arr, int size) {
+		Object[] temp = new Object[size];
+		for (int i = 0; i < arr.length; i++) {
+			temp[i] = arr[i];
+		}
+		return temp;
+	}
 	/**
 	 * retreives the value corresponding to a given key
 	 * in the symbol table.
@@ -91,38 +126,78 @@ public class ST<Key extends Comparable<Key>, Value> {
 	}
 	
 	public void delete(Key key) {
+		if (key == null) 
+			throw new IllegalArgumentException("key is null");
 		
+		int i = rank(key);
+		if (i < N && key.compareTo(keys[i]) == 0) {
+			for (int j = i; j < N; j++) {
+				keys[j] = keys[j+1];
+				vals[j] = vals[j+1];
+			}
+			N--;
+		}
 	}
 	
 	public Key min() {
-		if (isEmpty()) 
-			return null;
+		if (isEmpty()) return null;
 		return keys[0];
 	}
 	
 	public Key max() {
-		if (isEmpty())
-			return null;
-		return keys[N];
+		if (isEmpty()) return null;
+		return keys[N-1];
 	}
 	
 	public Key floor(Key key) {
-		return null;
+		if (key == null) 
+			throw new IllegalArgumentException("key is null");
+		int i = rank(key);
+		return keys[--i];
 	}
 	
 	public Key ceiling(Key key) {
-		return null;
+		if (key == null) 
+			throw new IllegalArgumentException("key is null");
+		int i = rank(key);
+		return keys[i];
 	}
 	
 	public int rank(Key key) {
-		return 0;
+		if (isEmpty()) return 0;
+		return rank(key, 0, N-1);
 	}
 	
+	private int rank(Key key, int lo, int hi) {
+		int mid = (lo + hi) / 2;
+		int cmp = key.compareTo(keys[mid]);
+		
+		if (cmp > 0) return rank(key, mid + 1, hi);
+		else if (cmp < 0) return rank(key, lo, mid - 1);
+		
+		return mid;
+		
+	}
+	
+	/**
+	 * returns the key at the given rank in the table.
+	 * @param rank an Integer
+	 * @return Key
+	 */
 	public Key select(int rank) {
-		return null;
+		if (rank >= N) return null;
+		return keys[rank];
 	}
 
+	/**
+	 * iterates the keys in the symbol table
+	 * @return an iterator on the keys in the data structure
+	 */
 	public Iterable<Key> keys() {
-		return null;
+		Queue<Key> queue = new Queue<Key>();
+		for (int i = 0; i < N; i++) {
+			queue.enqueue(keys[i]);
+		}
+		return queue;
 	}
 }

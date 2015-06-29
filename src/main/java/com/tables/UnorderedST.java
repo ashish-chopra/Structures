@@ -16,7 +16,7 @@
  *  linearly, hence Linked List data structure is best suitable for it.
  *  
  *  This data structure is generally good for limited data, but as 
- *  your data grows, it becomes a overkill. Then we mve towards 
+ *  your data grows, it becomes a overkill. Then we move towards 
  *  optimized STs.
  *  
  */
