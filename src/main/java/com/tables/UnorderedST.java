@@ -22,6 +22,8 @@
  */
 package com.tables;
 
+import java.util.Iterator;
+
 /**
  * UnorderedST is a data structure to store searchable data in unordered
  * form. Each data item is associated with a key and value. The key is 
@@ -30,10 +32,10 @@ package com.tables;
  * @author Ashish Chopra
  *
  */
-public class UnorderedST<Key, Value> {
+public class UnorderedST<Key, Value> implements Iterable<Key> {
 
-	private Node first;
-	private int N;
+	private Node first;   // pointer to first element in the table
+	private int N;        // current size of the table
 	
 	/**
 	 * creates an empty unordered symbol
@@ -166,5 +168,32 @@ public class UnorderedST<Key, Value> {
 			this.val = val;
 			this.next = next;
 		}
+	}
+	
+	
+	public Iterator<Key> iterator() {
+		return new TableIterator();
+	}
+	
+	private class TableIterator implements Iterator<Key> {
+		Node current = first;
+		
+		public boolean hasNext() {
+			return current == null;
+		}
+
+		public Key next() {
+			if (hasNext()) {
+				Key k = current.key;
+				current = current.next;
+				return k;
+			}
+			return null;
+		}
+
+		public void remove() {
+			throw new UnsupportedOperationException("Remove is not supported");
+		}
+		
 	}
 }
