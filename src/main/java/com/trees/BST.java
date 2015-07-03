@@ -17,9 +17,21 @@
  */
 package com.trees;
 
+/**
+ * BST stands for Binary Search Tree is a basic tree structure used to keep data in binary searchable
+ * format. On every compare, one side of tree is pruned which helps in achieving the searching performance
+ * similar to binary search. Since it uses linked nodes to represent each data item, hence insertion, deletion
+ * etc are also performed in o(logN) time.
+ * The data stored in BST are sorted by default as a result of operations. Hence we can perform
+ * various sorted operations like min, max, floor, ceiling, rank, select etc on the data.
+ * @author Ashish Chopra
+ *
+ * @param <Key>
+ * @param <Value>
+ */
 public class BST<Key extends Comparable<Key>, Value> {
 
-	private Node root;
+	private Node root;		// root element of the tree
 	
 	private class Node {
 		Key key;
@@ -61,6 +73,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 	 */
 	public int size() {
 		return size(root);
+	}
+	
+	private int size(Node x) {
+		if (x == null) return 0;
+		return x.N;
 	}
 	
 	/**
@@ -115,31 +132,108 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return x.val;
 	}
 	
-	private int size(Node x) {
-		if (x == null) return 0;
-		return x.N;
-	}
-	
-	/*
+	/**
+	 * returns the floor of a given key in the tree.
+	 * A floor of a key is defined as the largest element
+	 * which is smaller than the given key.
+	 * @param key
+	 * @return
+	 */
 	public Key floor(Key key) {
-		return null;
+		Node n = floor(root, key);
+		if (n != null) return n.key;
+		return key;
 	}
 	
+	private Node floor(Node x, Key key) {
+		if (x == null) return null;
+		
+		int cmp = key.compareTo(x.key);
+		if (cmp < 0) 
+			return floor(x.left, key);
+		else if (cmp > 0) {
+			Node t = floor(x.right, key);
+			if (t == null) 
+				return x;
+			else
+				return t;
+		}
+		return x;
+	}
+	
+	/**
+	 * returns the ceiling of a given key in the tree.
+	 * The key may/may not be present in the tree. A ceiling
+	 * of a key is defined as the smallest element which is larger than
+	 * the given key.
+	 * @param key
+	 * @return
+	 */
 	public Key ceiling(Key key) {
-		return null;
+		Node n = ceiling(root, key);
+		if (n != null) return n.key;
+		return key;
+	}
+	
+	private Node ceiling(Node x, Key key) {
+		if (x == null) return null;
+		
+		int cmp = key.compareTo(x.key);
+		if (cmp > 0) 
+			return floor(x.left, key);
+		else if (cmp < 0) {
+			Node t = floor(x.right, key);
+			if (t == null) 
+				return x;
+			else
+				return t;
+		}
+		return x;
 	}
 	
 	public void delete(Key key) {
 		
 	}
 	
+	/**
+	 * returns the rank of a key in the given tree.
+	 * Rank is the number of keys smaller than the given key.
+	 * @param key
+	 * @return
+	 */
 	public int rank(Key key) {
-		return 0;
+		return rank(root, key);
 	}
 	
-	public Key select(int rank) {
-		return null;
+	private int rank(Node x, Key key) {
+		if (x == null) return 0;
+		
+		int cmp = key.compareTo(x.key);
+		if (cmp < 0)
+			return rank(x.left, key);
+		else if (cmp > 0)
+			return rank(x.right, key) + size(x.left) + 1;
+
+		return size(x.left);
 	}
-	*/
+	
+	/**
+	 * returns a key with a given rank as input.
+	 * @param rank
+	 * @return
+	 */
+	public Key select(int rank) {
+		return select(root, rank);
+	}
+
+	private Key select(Node x, int rank) {
+		if (x == null) return null;
+		
+		int t = size(x.left);
+		if(rank < t) return select(x.left, rank);
+		else if (rank > t)
+			return select(x.right, rank-t-1);
+		return x.key;
+	}
 	
 }
