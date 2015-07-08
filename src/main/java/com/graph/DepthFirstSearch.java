@@ -18,25 +18,72 @@
  *     is destination); but that path depends on the nature of recursion and representation. 
  *     In order to find path with special properties like minimum distance etc, we will use other
  *     algorithms.
- *  5. Using DFS we can answer queries like "Is it a connected graph; Is there any path between two given vertices;
- *     Find a path b/w given two vertices"
- *   
+ *  5. Using DFS we can answer queries like 
+ *     
+ *      Is it a connected graph? 
+ *      Is there any path between two given vertices?
+ *      Find a path between two given vertices?
+ *      Is the given graph acyclic?
  *  
  */
 package com.graph;
 
 public class DepthFirstSearch {
 	
-	private boolean[] marked;
-	private int[] edgeTo;
-	private Graph G;
+	private boolean[] marked;	// vertices which are already visited
+	private int[] edgeTo;		// store the parent vertex for each visited vertex
+	private Graph G;			// Graph under study
+	private int s;				// source vertex
 	
+	private int count;			// count the number of vertices travelled during DFS.
+	
+	/**
+	 * creates a depth first search object and
+	 * process the given Graph using DFS fashion.
+	 * @param G Graph
+	 * @param s source vertex
+	 */
+	public DepthFirstSearch(Graph G, int s) {
+		this.G  = G;
+		this.s = s;
+		marked = new boolean[G.V()];
+		edgeTo = new int[G.V()];
+		dfs(G, s);
+	}
+	
+	/**
+	 * checks if the given vertex is marked?
+	 * This will help in answering questions like,
+	 * is there any path between given vertex and source vertex?
+	 * 
+	 * @param v destination vertex in the graph.
+	 * @return true if path exists, false otherwise.
+	 */
 	public boolean marked(int v) {
-		return false;
+		return marked[v];
 	}
 	
-	public void dfs(Graph G, int s) {
-		
+	private void dfs(Graph G, int s) {
+		marked[s] = true;
+		count++;
+		for (int w: G.adj(s)) {
+			if (!marked[w]) {
+				dfs(G, w);
+			}
+				
+		}
 	}
+	
+	/**
+	 * returns the number of vertices connected in the graph.
+	 * if the count is equal to total number of vertices of the graph,
+	 * then the complete graph is connected, otherwise it contains connected
+	 * components.
+	 * @return
+	 */
+	public int count() {
+		return count;
+	}
+	
 
 }

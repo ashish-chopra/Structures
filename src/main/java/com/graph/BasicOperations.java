@@ -15,7 +15,7 @@ public class BasicOperations {
 	 * @return degree as int
 	 */
 	public int degree(int v) {
-		if (v < 0 || v < G.V())
+		if (v < 0 || v >= G.V())
 			throw new IllegalArgumentException("vertex not found in Graph");
 		int degree = 0;
 		for (int w: G.adj(v)) {

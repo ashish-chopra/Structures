@@ -50,6 +50,11 @@ public class Graph {
 	private int E;				// number of edges
 	private Bag<Integer>[] adj; // adjacency list of vertices
 	
+	/**
+	 * creates an empty graph with zero edges with
+	 * given number of vertices as input.
+	 * @param v Total number of vertices in the graph.
+	 */
 	public Graph(int v) {
 		if (v <= 0)
 			throw new IllegalArgumentException("No. of vertices is zero or negative.");
@@ -61,37 +66,87 @@ public class Graph {
 		}
 	}
 	
+	/**
+	 * creates a graph by reading input from the stream provided.
+	 * The input format is like:
+	 * 5	// number of vertices
+	 * 6    // number of edges
+	 * 0 3  // edge wise pair in E lines
+	 * 2 4
+	 * 3 4
+	 * 1 2 
+	 * @param s
+	 */
 	public Graph(Scanner s) {
 		this(s.nextInt());
-		this.E = s.nextInt();
+		int E = s.nextInt();
 		for (int i = 0; i < E; i++) {
 			addEdge(s.nextInt(), s.nextInt());
 		}
 	}
 	
+	/**
+	 * adds an edge v-w in the graph.
+	 * @param v one vertex
+	 * @param w other vertex
+	 */
 	public void addEdge(int v, int w) {
 		adj[v].add(w);
 		adj[w].add(v);
 		E++;
 	}
 
+	/**
+	 * gets the total number of vertices in the graph.
+	 * @return
+	 */
 	public int V() {
 		return V;
 	}
 	
+	/**
+	 * gets the total number of edges in the graph.
+	 * @return
+	 */
 	public int E() {
 		return E;
 	}
 	
+	/**
+	 * returns a list of adjacent vertices of a given vertex
+	 * in the graph.
+	 * @param v the vertex whose adjacency list is required.
+	 * @return
+	 */
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
 	}
 	
+	/**
+	 * checks to see if there is an edge v-w in the graph.
+	 * @param v  one vertex
+	 * @param w  other vertex
+	 * @return
+	 */
+	public boolean hasEdge(int v, int w) {
+		for (int k: adj(v)) {
+			if (w == k) return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * returns a String representation of the graph.
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Graph with V = " + V + " and E = " + E);
+		sb.append("Graph with V = " + V + " and E = " + E + "\n");
 		for (int v = 0; v < V; v++) {
-			sb.append(v + ": " + adj[v].toString());
+			sb.append(v + ": ");
+			for (int w: adj(v)) {
+				sb.append(w + " ");
+			}
+			sb.append("\n");
 		}
 		return sb.toString();
 	}
