@@ -48,6 +48,7 @@ public class DepthFirstSearch {
 		this.s = s;
 		marked = new boolean[G.V()];
 		edgeTo = new int[G.V()];
+		edgeTo[s] = Integer.MIN_VALUE;
 		dfs(G, s);
 	}
 	
@@ -68,6 +69,7 @@ public class DepthFirstSearch {
 		count++;
 		for (int w: G.adj(s)) {
 			if (!marked[w]) {
+				edgeTo[w] = s;
 				dfs(G, w);
 			}
 				
@@ -85,5 +87,14 @@ public class DepthFirstSearch {
 		return count;
 	}
 	
+	public String pathTo(int w) {
+		String path = null;
+		int v = w;
+		while (v == s) {
+			path = edgeTo[w] + " - " + path;
+		}
+		path = s + " - " + path + " - " + w;
+		return path;
+	}
 
 }
