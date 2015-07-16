@@ -4,7 +4,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.Scanner;
 
-public class DFSTest {
+import junit.framework.TestCase;
+
+public class DFSTest extends TestCase {
 
 	private Graph getGraph(String name) {
 		Scanner scn = null;

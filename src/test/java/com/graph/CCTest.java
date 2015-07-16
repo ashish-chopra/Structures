@@ -35,5 +35,12 @@ public class CCTest extends TestCase {
 			components[id].enqueue(v);
 		}
 	
+		for(int i = 0; i < components.length; i++) {
+			for (int v: components[i]) {
+				System.out.print(" " + v);
+			}
+			System.out.println("\n");
+		}
+		
 	}
 }
