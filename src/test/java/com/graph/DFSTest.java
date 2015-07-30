@@ -8,7 +8,9 @@ import junit.framework.TestCase;
 
 public class DFSTest extends TestCase {
 
-	private Graph getGraph(String name) {
+	private Graph G;
+	public void setup() {
+		String name = "tinyGraph.txt";
 		Scanner scn = null;
 		try {
 			URL url = this.getClass().getResource("/" + name);
@@ -16,16 +18,15 @@ public class DFSTest extends TestCase {
 		} catch (Exception e) {
 			
 		}
-		Graph G = new Graph(scn);
-		return G;
+		this.G = new Graph(scn);
+		
 	}
 	
 	/*
 	 *  1. Is the given graph is connected?
 	 *  2. Is there any path between source vertex and given vertex.
 	 */
-	public void TestDFSQueries() {
-		Graph G = getGraph("tinyGraph.txt");
+	public void testDFSQueries() {
 		DepthFirstSearch dfs = new DepthFirstSearch(G, 0);
 		
 	}
