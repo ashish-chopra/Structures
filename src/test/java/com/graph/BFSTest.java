@@ -7,9 +7,9 @@ import java.util.Scanner;
 import junit.framework.TestCase;
 
 public class BFSTest extends TestCase {
-	Graph G;
 	
-	public void setup() {
+	Graph G;
+	public void setUp() {
 		
 		Scanner scn = null;
 		try {

@@ -19,13 +19,14 @@ import com.stacks.Stack;
 /**
  * Process a graph in BFS fashion to determine the minimum
  * path between a source vertex and any given vertex.
+ * 
  * @author Ashish Chopra
  *
  */
 public class BreadthFirstSearch {
 
-	private boolean marked[];
-	private int edgeTo[];
+	private boolean marked[];   // vertices marked while traversing in BFS.
+	private int edgeTo[];       // mark the parent vertex for a given vertex
 	
 	public BreadthFirstSearch(Graph G, int s) {
 		marked = new boolean[G.V()];

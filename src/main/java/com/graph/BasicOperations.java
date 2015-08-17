@@ -22,8 +22,8 @@ public class BasicOperations {
 	/**
 	 * gets the degree of a given vertex v in the graph G.
 	 * A degree is the number of edges incident from vertex v.
-	 * @param v vertex number as int
-	 * @return degree as int
+	 * @param v vertex id as zero indexed <code>integer</code>
+	 * @return degree as <code>integer</code>
 	 */
 	public int degree(int v) {
 		if (v < 0 || v >= G.V())

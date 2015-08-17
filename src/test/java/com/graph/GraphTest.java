@@ -8,7 +8,8 @@ import junit.framework.TestCase;
 
 public class GraphTest extends TestCase {
 
-	private Graph getGraph() {
+	private Graph G;
+	public void setUp() {
 		
 		Scanner scn = null;
 		try {
@@ -17,18 +18,17 @@ public class GraphTest extends TestCase {
 		} catch (Exception e) {
 			
 		}
-		Graph G = new Graph(scn);
-		return G;
+		this.G = new Graph(scn);
 	}
 	public void testGraphAPI() throws Exception {
-		Graph G = getGraph();
+		
 		assertEquals(12, G.V());
 		assertEquals(16, G.E());
 		System.out.println(G.toString());
 	}
 	
 	public void testBasicOperationsOfGraph() {
-		BasicOperations bo = new BasicOperations(getGraph());
+		BasicOperations bo = new BasicOperations(G);
 		
 		assertEquals(3, bo.degree(1));
 		assertEquals(2, bo.degree(4));

@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 public class DFSTest extends TestCase {
 
 	private Graph G;
-	public void setup() {
+	public void setUp() {
 		String name = "tinyGraph.txt";
 		Scanner scn = null;
 		try {

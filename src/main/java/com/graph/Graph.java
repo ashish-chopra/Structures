@@ -5,22 +5,22 @@
  *  ----------------------------------------------
  *  Graph is an abstract Data type that represents the collection
  *  of vertices and edges as provided by input.
- *  
+ *
  *  The Graph will be studied and developed in four flavors:
  *  1. Undriected Graph
  *  2. Directed Graph
  *  3. Weighted Undirected Graph
  *  4. Weighted Digraph
- *  
+ *
  *  The Graph is implemented using adjacency list, which allows self loops
- *  and parallel edges as well. Every edge will be stored twice in this 
+ *  and parallel edges as well. Every edge will be stored twice in this
  *  representation. However this representation is the most efficient among
  *  others like Adjacency matrix, array of edges etc.
- *  
- *  Various operations that are performed on graph like search, finding path, 
+ *
+ *  Various operations that are performed on graph like search, finding path,
  *  minimum path and other queries will be developed as their own class which
  *  utilize Graph G as input.
- *  
+ *
  */
 package com.graph;
 
@@ -32,16 +32,16 @@ import com.bags.Bag;
  * called edges E. Every Graph G is defined as function of G = f(V, E). A graph is created by
  * calling one of the two constuctors. One creates a graph with given number of vertices.
  * Other takes a stream input and initializes the graph from stream data.
- * 
+ *
  * Graph provides following API
  * ----------------------------------------------
  * Graph (int v)                   // constructs a graph with given no. of vertices
  * Graph (Stream s)                // constructs a graph from input stream data
  * int V()                         // returns the number of vertices
  * int E()                         // returns the number of edges
- * Iterable<Integer> adj(int v)    // returns the adjacent vertices list of a given vertex v.    
- * void addEdge(int v, int w)      // adds an edge between vertex v and w. 
- * 
+ * Iterable<Integer> adj(int v)    // returns the adjacent vertices list of a given vertex v.
+ * void addEdge(int v, int w)      // adds an edge between vertex v and w.
+ *
  * @author Ashish Chopra
  *
  */
@@ -49,7 +49,7 @@ public class Graph {
 	private int V;				// number of vertices
 	private int E;				// number of edges
 	private Bag<Integer>[] adj; // adjacency list of vertices
-	
+
 	/**
 	 * creates an empty graph with zero edges with
 	 * given number of vertices as input.
@@ -65,7 +65,7 @@ public class Graph {
 			adj[i] = new Bag<Integer>();
 		}
 	}
-	
+
 	/**
 	 * creates a graph by reading input from the stream provided.
 	 * The input format is like:
@@ -74,7 +74,7 @@ public class Graph {
 	 * 0 3  // edge wise pair in E lines
 	 * 2 4
 	 * 3 4
-	 * 1 2 
+	 * 1 2
 	 * @param s
 	 */
 	public Graph(Scanner s) {
@@ -84,7 +84,7 @@ public class Graph {
 			addEdge(s.nextInt(), s.nextInt());
 		}
 	}
-	
+
 	/**
 	 * adds an edge v-w in the graph.
 	 * @param v one vertex
@@ -103,7 +103,7 @@ public class Graph {
 	public int V() {
 		return V;
 	}
-	
+
 	/**
 	 * gets the total number of edges in the graph.
 	 * @return
@@ -111,7 +111,7 @@ public class Graph {
 	public int E() {
 		return E;
 	}
-	
+
 	/**
 	 * returns a list of adjacent vertices of a given vertex
 	 * in the graph.
@@ -121,7 +121,7 @@ public class Graph {
 	public Iterable<Integer> adj(int v) {
 		return adj[v];
 	}
-	
+
 	/**
 	 * checks to see if there is an edge v-w in the graph.
 	 * @param v  one vertex
@@ -134,7 +134,7 @@ public class Graph {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * returns a String representation of the graph.
 	 */

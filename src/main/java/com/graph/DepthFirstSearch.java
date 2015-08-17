@@ -32,19 +32,16 @@ public class DepthFirstSearch {
 	
 	private boolean[] marked;	// vertices which are already visited
 	private int[] edgeTo;		// store the parent vertex for each visited vertex
-	private Graph G;			// Graph under study
 	private int s;				// source vertex
-	
-	private int count;			// count the number of vertices travelled during DFS.
+	private int count;			// count the number of vertices traveled during DFS.
 	
 	/**
 	 * creates a depth first search object and
-	 * process the given Graph using DFS fashion.
+	 * process the given Graph in DFS fashion.
 	 * @param G Graph
 	 * @param s source vertex
 	 */
 	public DepthFirstSearch(Graph G, int s) {
-		this.G  = G;
 		this.s = s;
 		marked = new boolean[G.V()];
 		edgeTo = new int[G.V()];
@@ -53,7 +50,7 @@ public class DepthFirstSearch {
 	}
 	
 	/**
-	 * checks if the given vertex is marked?
+	 * checks if the given vertex is marked.
 	 * This will help in answering questions like,
 	 * is there any path between given vertex and source vertex?
 	 * 
@@ -72,7 +69,6 @@ public class DepthFirstSearch {
 				edgeTo[w] = s;
 				dfs(G, w);
 			}
-				
 		}
 	}
 	
