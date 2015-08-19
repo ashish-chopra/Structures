@@ -15,31 +15,51 @@ package com.graph;
  * Cycle detects if the given graph 
  * contains cycle or not.
  * 
- * @author eashcra
+ * @author Ashish Chopra
  *
  */
 public class Cycle {
 
-	private boolean marked[];
-	private boolean hasCycle;
-	private Graph G;
-	private int s;
+	private boolean marked[];	// list of vertices marked true if visited.
+	private boolean hasCycle;   // flag to record if cycle exists.
+	private Graph G;			// the graph under consideration
 	
 
+	/**
+	 * creates a Cycle object which processes the
+	 * given graph from the given source vertex s.
+	 * @param G The Graph under processing.
+	 * @param s source vertex
+	 */
 	public Cycle(Graph G, int s) {
 		this.G = G;
+		this.marked = new boolean[G.V()];
+		this.hasCycle = false;
 		dfs(G, s);
 	}
 	
+	/*
+	 * runs DFS on a given graph and identifies cycle.
+	 * If any vertex which has already been marked/visited,
+	 * is seen again, then cycle exists. 
+	 * 
+	 */
 	private void dfs(Graph G, int s) {
 		marked[s] = true;
 		for (int w: G.adj(s)) {
 			if (!marked[w])
 				dfs(G, w);
-			else if (w == s) hasCycle = true;
+			else {
+				hasCycle = true;
+				break;
+			}
 		}
 	}
 	
+	/**
+	 * determines if the given Graph G has cycle.
+	 * @return true if cycle exists, false otherwise.
+	 */
 	public boolean hasCycle() {
 		return hasCycle;
 	}

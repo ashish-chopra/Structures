@@ -10,13 +10,12 @@ public class BFSTest extends TestCase {
 	
 	Graph G;
 	public void setUp() {
-		
 		Scanner scn = null;
 		try {
 			URL url = this.getClass().getResource("/tinyGraph.txt");
 			scn = new Scanner(new File(url.getFile()));
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		this.G = new Graph(scn);
 	}
