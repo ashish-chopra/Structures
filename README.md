@@ -2,7 +2,7 @@
 What's coming up?
 ---------------------
 1. Well, I will keep adding graphs, balanced trees as i keep reading more.
-2. I think adding a support of generating java-doc is a great help.
+2. I think adding a support of generating java-doc is a great help. [Done]
 3. Then, we get little innovative and try to visualize data structures using graphic library.
 
 Welcome to Structures!
@@ -31,8 +31,11 @@ How to get it running?
    
    Since recenlty, we converted the old test cases into junits, so running the same is super easy! But i still miss my old in-house developed testing framework :(
 
-    >$ mvn compile     // this will only compile your source code
-    >$ mvn test        // this will run the test suite
+    >$ mvn compile     		// this will only compile your source code
+    >$ mvn test        		// this will run the test suite
+    
+    >$ mvn javadoc:javadoc  // generates the java doc of all the ADTs
+    							   // at "Structures/target/site/apidocs/"
 
    You can run these commands from command line inside your `Structures` directory. 
    
