@@ -14,6 +14,26 @@
  *  
  *  Hence a data structure is needed which can provide the insert operation like link lists,
  *  and search operation like binary search.
+ *  
+ *   * Following is the outline of this data structure:
+ * 
+ * 	BST<Key, Value>
+ * ------------------------------------------------
+ * 		 	BST()						// constructs an empty tree object
+ * Value 	get(Key key)				// get the given key from tree
+ * void  	put(Key key, Value value)  	// put the key, value pair in BST
+ * boolean	contains(Key key)			// checks to see if the key is present in BST
+ * int		size()						// gets the current size of BST
+ * boolean	isEmpty()					// checks if the BST is empty
+ * Key		min()						// gets the minimum key from BST
+ * Key		max()						// gets the maximum key from BST
+ * Key		floor(Key key)				// gets the floor of a given key
+ * Key		ceiling(Key key)			// gets the ceiling of a given key
+ * int		rank(Key key)				// gets the number of keys smaller than the given key
+ * Key		select(int rank)			// select the key with a given rank
+ * void		delete(Key key)				//deletes the given key and its value from BST
+ * 
+ * 
  */
 package com.trees;
 
@@ -22,8 +42,7 @@ package com.trees;
  * format. On every compare, one side of tree is pruned which helps in achieving the searching performance
  * similar to binary search. Since it uses linked nodes to represent each data item, hence insertion, deletion
  * etc are also performed in o(logN) time.
- * The data stored in BST are sorted by default as a result of operations. Hence we can perform
- * various sorted operations like min, max, floor, ceiling, rank, select etc on the data.
+ * 
  * @author Ashish Chopra
  *
  * @param <Key>
@@ -55,30 +74,29 @@ public class BST<Key extends Comparable<Key>, Value> {
 	public BST() {
 		root = null;
 	}
-	
+
 	/**
-	 * checks to see if the tree is empty.
-	 * @return <code>true</code> if tree is empty,
-	 *         <code>false</code> otherwise.
-	 */
-	public boolean isEmpty() {
-		return root == null;
-	}
-	
-	/**
-	 * returns the current size of the tree.
-	 * The size of a tree T is the number of nodes in the tree, rooted at
-	 * node T.
+	 * gets the corresponding value for a given key.
+	 * if key is not found then <code>null</code> is returned.
+	 * @param key
 	 * @return
 	 */
-	public int size() {
-		return size(root);
+	public Value get(Key key) {
+		return get(key, root);
 	}
 	
-	private int size(Node x) {
-		if (x == null) return 0;
-		return x.N;
+	private Value get(Key key, Node x) {
+		if (x == null) return null;
+		int cmp = key.compareTo(x.key);
+		
+		if (cmp < 0)
+			return get(key, x.left);
+		else if (cmp > 0)
+			return get(key, x.right);
+		
+		return x.val;
 	}
+	
 	
 	/**
 	 * inserts a key-value pair into the tree, if not already exists.
@@ -110,27 +128,85 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return x;
 	}
 	
+	
 	/**
-	 * gets the corresponding value for a given key.
-	 * if key is not found then <code>null</code> is returned.
+	 * checks if the given key is present in BST.
 	 * @param key
-	 * @return
+	 * @return <code>true</code> if key is available,
+	 *		   <code>false</code> otherwise.
 	 */
-	public Value get(Key key) {
-		return get(key, root);
+	public boolean contains(Key key) {
+		if (key == null)
+			throw new IllegalArgumentException("Null key argument specified");
+		Value val = get(key);
+		return val != null;
+	}
+
+	
+	/**
+	 * checks to see if the tree is empty.
+	 * @return <code>true</code> if tree is empty,
+	 *         <code>false</code> otherwise.
+	 */
+	public boolean isEmpty() {
+		return root == null;
 	}
 	
-	private Value get(Key key, Node x) {
-		if (x == null) return null;
-		int cmp = key.compareTo(x.key);
-		
-		if (cmp < 0)
-			return get(key, x.left);
-		else if (cmp > 0)
-			return get(key, x.right);
-		
-		return x.val;
+	/**
+	 * returns the current size of the tree.
+	 * The size of a tree T is the number of nodes in the tree, rooted at
+	 * node T.
+	 * @return
+	 */
+	public int size() {
+		return size(root);
 	}
+	
+	private int size(Node x) {
+		if (x == null) return 0;
+		return x.N;
+	}
+	
+	
+	/**
+	 * gets the smallest key in BST
+	 * @return Key
+	 */
+	public Key min() {
+		if (isEmpty()) 
+			return null;
+		return min(root).key;
+	}
+	
+	private Node min(Node x) {
+		if (x == null)  // this check will never be encountered.
+			return null;
+		if (x.left != null)
+			return min(x.left);
+		else
+			return x;
+	}
+	
+	
+	/**
+	 * gets the largest key present in BST.
+	 * @return key the largest key.
+	 */
+	public  Key max() {
+		if (isEmpty())
+			return null;
+		return max(root).key;
+	}
+	
+	private Node max(Node x) {
+		if (x == null)
+			return null;
+		if (x.right != null)
+			return max(x.right);
+		else
+			return x;
+	}
+	
 	
 	/**
 	 * returns the floor of a given key in the tree.
