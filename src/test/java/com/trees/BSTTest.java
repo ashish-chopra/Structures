@@ -42,9 +42,9 @@ public class BSTTest extends TestCase {
 		assertEquals(new Integer(5), bst.floor(5));
 		assertEquals(new Integer(6), bst.floor(7));
 		
-		//assertEquals(new Integer(5), bst.ceiling(4));
-		//assertEquals(new Integer(6), bst.ceiling(5));
-		//assertEquals(new Integer(10), bst.ceiling(7));
+		assertEquals(new Integer(5), bst.ceiling(4));
+		assertEquals(new Integer(5), bst.ceiling(5));
+		assertEquals(new Integer(9), bst.ceiling(7));
 		
 		bst.put(new Integer(11), "AshishChanged11");
 		bst.put(new Integer(20), "Ashish20");

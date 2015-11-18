@@ -211,7 +211,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 	/**
 	 * returns the floor of a given key in the tree.
 	 * A floor of a key is defined as the largest element
-	 * which is smaller than the given key.
+	 * which is smaller than or equal to the given key.
 	 * @param key
 	 * @return
 	 */
@@ -240,7 +240,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 	/**
 	 * returns the ceiling of a given key in the tree.
 	 * The key may/may not be present in the tree. A ceiling
-	 * of a key is defined as the smallest element which is larger than
+	 * of a key is defined as the smallest element which is larger than or equal to
 	 * the given key.
 	 * @param key
 	 * @return
@@ -256,9 +256,9 @@ public class BST<Key extends Comparable<Key>, Value> {
 		
 		int cmp = key.compareTo(x.key);
 		if (cmp > 0) 
-			return floor(x.left, key);
+			return ceiling(x.right, key);
 		else if (cmp < 0) {
-			Node t = floor(x.right, key);
+			Node t = ceiling(x.left, key);
 			if (t == null) 
 				return x;
 			else
