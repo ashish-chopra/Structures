@@ -54,5 +54,26 @@ public class BSTTest extends TestCase {
 		
 	}
 	
+	public void testDeleteOperations() {
+		BST<Integer, String> bst = new BST<Integer, String>();
+		bst.put(1, "Ashish1");
+		bst.put(3, "Ashish3");
+		bst.put(6, "Ashish6");
+		bst.put(2, "Ashish2");
+		bst.put(5, "Ashish5");
+		bst.put(9, "Ashish9");
+		bst.put(11, "Ashish11");
+		bst.put(120, "Ashish120");
+		
+		assertEquals("Ashish1", bst.get(1));
+		assertEquals(8, bst.size());
+		bst.deleteMin();
+		assertEquals(null, bst.get(1));
+		assertEquals(7, bst.size());
+		bst.delete(120);
+		assertEquals(null, bst.get(120));
+		assertEquals(6, bst.size());
+	}
+	
 	
 }

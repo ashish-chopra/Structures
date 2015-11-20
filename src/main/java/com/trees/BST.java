@@ -267,9 +267,6 @@ public class BST<Key extends Comparable<Key>, Value> {
 		return x;
 	}
 	
-	public void delete(Key key) {
-		
-	}
 	
 	/**
 	 * returns the rank of a key in the given tree.
@@ -311,5 +308,58 @@ public class BST<Key extends Comparable<Key>, Value> {
 			return select(x.right, rank-t-1);
 		return x.key;
 	}
+	
+	/**
+	 * deletes the node with minimum key from the BST.
+	 * 
+	 */
+	public void deleteMin() {
+		root = deleteMin(root);
+	}
+	
+	private Node deleteMin(Node x) {
+		if (x == null) return null;
+		
+		if (x.left == null) return x.right; 
+	
+		x.left = deleteMin(x.left);
+		x.N = size(x.left) + size(x.right) + 1;	
+		return x;
+	}
+	
+	/**
+	 * deletes the node containing the given key.
+	 * @param key Key stored in BST.
+	 */
+	public void delete(Key key) {
+		root = delete(root, key);
+	}
+	
+	private Node delete(Node x, Key key) {
+		if (x == null) return null;
+		int cmp = key.compareTo(x.key);
+		
+		if (cmp > 0) {
+			x.right = delete(x.right, key);
+		} else if (cmp < 0) {
+			x.left = delete(x.left, key);
+		} else {
+			
+			if (x.left == null) 
+				return x.right;
+			else if (x.right == null) 
+				return x.left;
+			else {
+				
+				Node t = x.right;
+				x = min(t.right);
+				x.right = deleteMin(t.right);
+				x.left = t.left; 
+			}
+		}
+		x.N = size(x.left) + size(x.right) + 1;
+		return x;
+	}
+	
 	
 }
