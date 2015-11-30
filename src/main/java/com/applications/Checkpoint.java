@@ -13,7 +13,7 @@
  *  Checkpoint API
  *  ---------------------------------------------------------
  *  		Checkpoint()			// creates a new checkpoint data structure
- *  boolean add(Item actionCode)	// adds the action code
+ *  boolean		add(Item actionCode)	// adds the action code
  *  Item	undo()					// undo the last performed action.
  *  Item	redo()					// redo the last performed undo action.
  *  int		size()					// return the size of all actions stored as of yet.
@@ -46,7 +46,7 @@ public class Checkpoint<Item> {
 			throw new IllegalArgumentException("checkpoint to add is null");
 		
 		if (!removed.isEmpty()) {
-			//removed.clear()   // i have implemented this function yet in stack API
+			removed.clear();   		// it is implemented in Stack API to support this application.
 		}		
 		current.push(checkpoint);
 	}
@@ -66,7 +66,7 @@ public class Checkpoint<Item> {
 	
 	
 	/**
-	 * redoes the last undone operation.
+	 * re-does the last undone operation.
 	 * @return the operation/item code
 	 */
 	public Item redo() {

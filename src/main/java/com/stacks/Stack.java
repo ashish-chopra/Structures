@@ -101,6 +101,13 @@ public class Stack<Item> implements Iterable<Item> {
 	}
 
 	/**
+	 * clears the stack object by permanently deleting the content.
+	 * Once this action is performed, it cannot be undone.
+	 */
+	public void clear() {
+		first = null;
+	}
+	/**
 	 * returns an iterator over the stack data structure.
 	 * 
 	 */
