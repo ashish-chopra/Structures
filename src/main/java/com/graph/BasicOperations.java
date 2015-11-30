@@ -38,7 +38,7 @@ public class BasicOperations {
 	/**
 	 * returns the maximum degree of the graph. That is the maximum
 	 * number of edges to any vertex in the given graph.
-	 * @return degree as int.
+	 * @return degree as <code>int</code>.
 	 */
 	public int maxDegree() {
 		int maxDegree = 0;
@@ -51,8 +51,19 @@ public class BasicOperations {
 		return maxDegree;
 	}
 	
-	public int averageDegree() {
-		return 0;
+	/**
+	 * calculates the average degree of a graph by averaging the
+	 * degree of each vertex in the graph.
+	 * @return average as <code>double</code>.
+	 */
+	public double averageDegree() {
+		double avgDegree = 0;
+		int sumDegree = 0;
+		for (int v = 0; v < G.V(); v++) {
+			sumDegree += degree(v);
+		}
+		avgDegree = sumDegree/G.V();
+		return avgDegree;
 	}
 	
 	/**
