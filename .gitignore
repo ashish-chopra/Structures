@@ -1,7 +1,7 @@
-*.class
+# building
+target
 
-# Package Files #
-*.jar
-*.war
-*.ear
-/bin/
+# Eclipse
+.classpath
+.project
+.settings
