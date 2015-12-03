@@ -50,7 +50,7 @@ public class HumpingDumping {
 	}
 	
 	private void swap(int position){
-		if (position < size())
+		if (position == size())
 			return;
 		
 		int temp =  data[data[position]];
