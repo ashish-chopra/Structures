@@ -41,6 +41,10 @@ How to get it running?
    
    Or using Eclipse by right click `Structures > Run As > Maven Build ...`
 
+Build Status
+---------------------------
+https://travis-ci.org/JainTarunJain/Structures.svg
+
 I found a bug/new feature!
 ---------------------------
 Structures' bugs are tracked using [Github Issue tracker system](https://github.com/ashish-chopra/Structures/issues).
