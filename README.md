@@ -43,7 +43,7 @@ How to get it running?
 
 Build Status
 ---------------------------
-https://travis-ci.org/JainTarunJain/Structures.svg
+[![Build Status](https://travis-ci.org/JainTarunJain/Structures.svg)](https://travis-ci.org/JainTarunJain/Structures)
 
 I found a bug/new feature!
 ---------------------------
