@@ -30,6 +30,7 @@ public class Selection {
 	 * @param array the array to be sorted
 	 * 
 	 */
+
 	public static void sort(Comparable[] array) {
 		int size = array.length;
 		int min;
@@ -66,6 +67,7 @@ public class Selection {
 
 	}
 
+
 	private static boolean less(Comparable v, Comparable w) {
 		return v.compareTo(w) < 0;
 	}
@@ -84,6 +86,7 @@ public class Selection {
      * prints sequence of Objects to standard output. 
      * @param array the array to be printed
      */
+
 	public static void show(Comparable[] array) {
 		int n = array.length;
 		for (int i = 0; i < n; i++) {
