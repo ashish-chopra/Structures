@@ -1,9 +1,13 @@
 language: java
 script: mvn test
 notifications:
-  # Email notifications are disabled to not annoy anybody.
+  # Email notifications are disabled (by default)
   # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
   # about configuring notification recipients and more.
-  email: false
+  email:
+    recipients:
+      - sendtoashishchopra@gmail.com
+      - taruncertain@gmail.com
+      - shivam.vds@gmail.com
 services:
   - Structures
