@@ -1,9 +1,15 @@
 
+Build Status
+---------------------------
+[![Build Status](https://travis-ci.org/ashish-chopra/Structures.svg)](https://travis-ci.org/ashish-chopra/Structures)
+
+
 What's coming up?
 ---------------------
 1. Well, I will keep adding graphs, balanced trees as i keep reading more.
 2. I think adding a support of generating java-doc is a great help. [Done]
 3. Then, we get little innovative and try to visualize data structures using graphic library.
+4. Support of Continous Integration will be done [Done]
 
 Welcome to Structures!
 ------------------------
@@ -41,9 +47,6 @@ How to get it running?
    
    Or using Eclipse by right click `Structures > Run As > Maven Build ...`
 
-Build Status
----------------------------
-[![Build Status](https://travis-ci.org/JainTarunJain/Structures.svg)](https://travis-ci.org/JainTarunJain/Structures)
 
 I found a bug/new feature!
 ---------------------------
