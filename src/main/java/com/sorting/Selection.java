@@ -10,11 +10,15 @@
  * 
  *  *  Features:
  *  
- *  1. Selection Sort is implemented as an array of Comparable Objects which sorts
- *     the objects in ascending order.
- *  2. It is a generic implementation which can take any type of array of objects.   
- *  3. The implementation is based on array based data structure.
- *  4. The running time complexity of each operation is constant, O(n2).
+ *  1. Selection Sort is implemented as an array of Comparable Objects and sorts them
+ *     based on their natural order defined by Comparable interface.
+ *  2. In case if client wants to sort the objects in some other order than the natural
+ *     order of objects, then client can call the overloaded method 
+ *     Selection.sort(array, comparator) and pass the comparator object which gives the 
+ *     customized ordering   
+ *  3. It is a generic implementation which can take any type of array of objects.   
+ *  4. The implementation is based on array based data structure.
+ *  5. The running time complexity of each operation is constant, O(N2).
  *  
  */
 package com.sorting;
@@ -22,16 +26,25 @@ package com.sorting;
 import java.util.Comparator;
 
 public class Selection {
+	
+	
+	/*
+	 *  private constructor prevents the
+	 *  instantiation of the class.
+	 */
 	private Selection() {
 	}
 
 	/**
-	 * Rearranges the array in ascending order, using the natural order.
+	 * rearranges the array in ascending order, 
+	 * using the natural order.
 	 * @param array the array to be sorted
 	 * 
 	 */
 
 	public static void sort(Comparable[] array) {
+		if(array == null)
+			throw new NullPointerException();
 		int size = array.length;
 		int min;
 		for (int i = 0; i < size; i++) {
@@ -53,6 +66,10 @@ public class Selection {
 	 */
 
 	public static void sort(Object[] array, Comparator com) {
+		
+		if(array == null)
+			throw new NullPointerException();
+		
 		int size = array.length;
 		int min;
 		for (int i = 0; i < size; i++) {
@@ -68,14 +85,23 @@ public class Selection {
 	}
 
 
+	/*
+	 * check is v is less than w ?
+	 */
 	private static boolean less(Comparable v, Comparable w) {
 		return v.compareTo(w) < 0;
 	}
 
+	/*
+	 * check is v is less than w ?
+	 */
 	private static boolean less(Comparator c, Object v, Object w) {
 		return c.compare(v, w) < 0;
 	}
 
+	/*
+	 * swap a[i] and a[j]
+	 */
 	private static void exchange(Object[] a, int i, int j) {
 		Object temp = a[i];
 		a[i] = a[j];
