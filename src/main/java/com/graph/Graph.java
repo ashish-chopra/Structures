@@ -20,6 +20,16 @@
  *  Various operations that are performed on graph like search, finding path,
  *  minimum path and other queries will be developed as their own class which
  *  utilize Graph G as input.
+ *  
+ *  
+ *  Graph provides following API
+ * ----------------------------------------------
+ * Graph (int v)                   // constructs a graph with given no. of vertices
+ * Graph (Stream s)                // constructs a graph from input stream data
+ * int V()                         // returns the number of vertices
+ * int E()                         // returns the number of edges
+ * Iterable<Integer> adj(int v)    // returns the adjacent vertices list of a given vertex v.
+ * void addEdge(int v, int w)      // adds an edge between vertex v and w.
  *
  */
 package com.graph;
@@ -32,15 +42,6 @@ import com.bags.Bag;
  * called edges E. Every Graph G is defined as function of G = f(V, E). A graph is created by
  * calling one of the two constuctors. One creates a graph with given number of vertices.
  * Other takes a stream input and initializes the graph from stream data.
- *
- * Graph provides following API
- * ----------------------------------------------
- * Graph (int v)                   // constructs a graph with given no. of vertices
- * Graph (Stream s)                // constructs a graph from input stream data
- * int V()                         // returns the number of vertices
- * int E()                         // returns the number of edges
- * Iterable<Integer> adj(int v)    // returns the adjacent vertices list of a given vertex v.
- * void addEdge(int v, int w)      // adds an edge between vertex v and w.
  *
  * @author Ashish Chopra
  *
@@ -67,14 +68,17 @@ public class Graph {
 	}
 
 	/**
-	 * creates a graph by reading input from the stream provided.
+	 * creates a graph by reading input from 
+	 * the input stream.
+	 * <pre>
 	 * The input format is like:
 	 * 5	// number of vertices
-	 * 6    // number of edges
-	 * 0 3  // edge wise pair in E lines
+	 * 6	// number of edges
+	 * 0 3	// edge wise pair in E lines
 	 * 2 4
 	 * 3 4
 	 * 1 2
+	 * </pre>
 	 * @param s
 	 */
 	public Graph(Scanner s) {
@@ -113,8 +117,8 @@ public class Graph {
 	}
 
 	/**
-	 * returns a list of adjacent vertices of a given vertex
-	 * in the graph.
+	 * returns a list of adjacent vertices of a 
+	 * given vertex in the graph.
 	 * @param v the vertex whose adjacency list is required.
 	 * @return
 	 */
