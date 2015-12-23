@@ -24,6 +24,11 @@ public class MergeSortTest extends TestCase {
 
 	}
 
+	/*
+	 * test method to sort the array of object on the basis of
+	 * population and if population is same then object is sort
+	 * on the basis of stateName in natural order. 
+	 */
 	public void testSortingObjects() {
 
 		City[] cities = { new City("Delhi", 18), 
@@ -74,6 +79,13 @@ public class MergeSortTest extends TestCase {
 			this.population = population;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * method compares City class object on the basis of population 
+		 * and return the non zero value, if value is zero then object is 
+		 * compare on the basis of stateName. 
+		 * @see java.lang.Comparable#compareTo(java.lang.Object)
+		 */
 		@Override
 		public int compareTo(City arg0) {
 			int val = Integer.compare(this.population, arg0.population);
