@@ -30,7 +30,7 @@
  *  
  *  
  */
-package com.graph;
+package com.graphs;
 
 import java.io.File;
 import java.util.Scanner;
@@ -87,7 +87,7 @@ public class SymbolGraph {
 			}
 
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}	
 	}
 	

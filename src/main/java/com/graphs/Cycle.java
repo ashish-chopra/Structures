@@ -10,7 +10,7 @@
  *  In an undirected graph, a cycle can be detected by traversing the 
  * 
  */
-package com.graph;
+package com.graphs;
 /**
  * Cycle detects if the given graph 
  * contains cycle or not.

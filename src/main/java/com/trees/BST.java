@@ -38,9 +38,10 @@
 package com.trees;
 
 /**
- * BST stands for Binary Search Tree is a basic tree structure used to keep data in binary searchable
- * format. On every compare, one side of tree is pruned which helps in achieving the searching performance
- * similar to binary search. Since it uses linked nodes to represent each data item, hence insertion, deletion
+ * BST stands for Binary Search Tree is a basic tree structure used to 
+ * keep data in binary searchable format. On every compare, one side of tree is pruned 
+ * which helps in achieving the searching performance similar to binary search. 
+ * Since it uses linked nodes to represent each data item, hence insertion, deletion
  * etc are also performed in o(logN) time.
  * 
  * @author Ashish Chopra

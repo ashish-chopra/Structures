@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 import junit.framework.TestCase;
 
+import com.graphs.CC;
+import com.graphs.Graph;
 import com.queues.Queue;
 
 public class CCTest extends TestCase {

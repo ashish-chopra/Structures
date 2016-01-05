@@ -15,7 +15,7 @@
  *   int id(int v)			// returns the connected component id (0 to count()-1) in which the given vertex v lies
  *   
  */
-package com.graph;
+package com.graphs;
 
 /**
  * CC stands for connected components.

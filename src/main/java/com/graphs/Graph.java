@@ -32,7 +32,7 @@
  * void addEdge(int v, int w)      // adds an edge between vertex v and w.
  *
  */
-package com.graph;
+package com.graphs;
 
 import java.util.Scanner;
 import com.bags.Bag;

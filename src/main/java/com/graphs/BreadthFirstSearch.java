@@ -11,7 +11,7 @@
  * 
  * 
  */
-package com.graph;
+package com.graphs;
 
 import com.queues.Queue;
 import com.stacks.Stack;

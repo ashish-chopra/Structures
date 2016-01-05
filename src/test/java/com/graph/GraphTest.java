@@ -4,6 +4,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.graphs.BasicOperations;
+import com.graphs.Graph;
+
 import junit.framework.TestCase;
 
 public class GraphTest extends TestCase {

@@ -4,6 +4,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.graphs.Cycle;
+import com.graphs.Graph;
+
 import junit.framework.TestCase;
 
 public class CycleTest extends TestCase {

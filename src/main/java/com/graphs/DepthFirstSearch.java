@@ -26,7 +26,7 @@
  *      Is the given graph acyclic?
  *  
  */
-package com.graph;
+package com.graphs;
 
 public class DepthFirstSearch {
 	

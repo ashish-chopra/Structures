@@ -9,7 +9,7 @@
  * 
  * 
  */
-package com.graph;
+package com.graphs;
 
 public class BasicOperations {
 

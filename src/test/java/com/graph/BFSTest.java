@@ -4,6 +4,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.graphs.BreadthFirstSearch;
+import com.graphs.Graph;
+
 import junit.framework.TestCase;
 
 public class BFSTest extends TestCase {
@@ -24,6 +27,7 @@ public class BFSTest extends TestCase {
 		int s = 0;
 		int v = 5;
 		BreadthFirstSearch bfs = new BreadthFirstSearch(G, s);
+		System.out.println(bfs.hasPathTo(v));
 		assertEquals(true, bfs.hasPathTo(v));
 		
 		s = 0;

@@ -29,7 +29,7 @@ public class ST<Key extends Comparable<Key>, Value> {
 	 */
 	@SuppressWarnings("unchecked")
 	public ST() {
-		this.keys = (Key[]) new Object[capacity];
+		this.keys = (Key[]) new Comparable[capacity];
 		this.vals = (Value[]) new Object[capacity];
 		this.N = 0;
 		
@@ -73,7 +73,7 @@ public class ST<Key extends Comparable<Key>, Value> {
 		}
 		
 		if (size() == capacity) {
-			keys = (Key[]) resize(keys, capacity * 2);
+			keys = (Key[]) resizeKeys(keys, capacity * 2);
 			vals = (Value[]) resize(vals, capacity * 2);
 			capacity = capacity * 2;
 		}
@@ -97,6 +97,19 @@ public class ST<Key extends Comparable<Key>, Value> {
 		}
 		return temp;
 	}
+	
+	/*
+	 * resizes the keys array incase it is filled.
+	 */
+	private Object[] resizeKeys(Comparable[] arr, int size) {
+		Comparable[] temp = new Comparable[size];
+		for (int i = 0; i < arr.length; i++) {
+			temp[i] = arr[i];
+		}
+		return temp;
+	}
+	
+	
 	/**
 	 * retreives the value corresponding to a given key
 	 * in the symbol table.
@@ -169,14 +182,19 @@ public class ST<Key extends Comparable<Key>, Value> {
 	}
 	
 	private int rank(Key key, int lo, int hi) {
-		int mid = (lo + hi) / 2;
-		int cmp = key.compareTo(keys[mid]);
 		
-		if (cmp > 0) return rank(key, mid + 1, hi);
-		else if (cmp < 0) return rank(key, lo, mid - 1);
-		
-		return mid;
-		
+		while (lo < hi) {
+			int mid = lo + (hi- lo) / 2;
+			int cmp = key.compareTo(keys[mid]);
+			
+			if (cmp > 0) {
+				lo = mid + 1;
+			}
+			else if (cmp < 0) {
+				hi = mid - 1;
+			}
+		}		
+		return lo;
 	}
 	
 	/**
