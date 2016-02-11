@@ -1,15 +1,10 @@
-
-Build Status
----------------------------
 [![Build Status](https://travis-ci.org/ashish-chopra/Structures.svg)](https://travis-ci.org/ashish-chopra/Structures)
 
-
-What's coming up?
+What are we working on?
 ---------------------
-1. Well, I will keep adding graphs, balanced trees as i keep reading more.
-2. I think adding a support of generating java-doc is a great help. [Done]
-3. Then, we get little innovative and try to visualize data structures using graphic library.
-4. Support of Continous Integration will be done [Done]
+1. Looking into some applications of LinkedList, Trees.
+2. Implementing Graph Algorithms
+3. Testing Data Structures with huge data.
 
 Welcome to Structures!
 ------------------------
