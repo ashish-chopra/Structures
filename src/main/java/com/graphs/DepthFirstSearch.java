@@ -29,67 +29,70 @@
 package com.graphs;
 
 public class DepthFirstSearch {
-	
-	private boolean[] marked;	// vertices which are already visited
-	private int[] edgeTo;		// store the parent vertex for each visited vertex
-	private int s;				// source vertex
-	private int count;			// count the number of vertices traveled during DFS.
-	
+
+	private boolean[] marked; // vertices which are already visited
+	private int[] edgeTo; // store the parent vertex for each visited vertex
+	private int sourceVertex;
+	private int count; // count the number of vertices traveled during DFS.
+
 	/**
-	 * creates a depth first search object and
-	 * process the given Graph in DFS fashion.
-	 * @param G Graph
-	 * @param s source vertex
-	 */
-	public DepthFirstSearch(Graph G, int s) {
-		this.s = s;
-		marked = new boolean[G.V()];
-		edgeTo = new int[G.V()];
-		edgeTo[s] = Integer.MIN_VALUE;
-		dfs(G, s);
-	}
-	
-	/**
-	 * checks if the given vertex is marked.
-	 * This will help in answering questions like,
-	 * is there any path between given vertex and source vertex?
+	 * creates a depth first search object and process the given Graph in DFS
+	 * fashion.
 	 * 
-	 * @param v destination vertex in the graph.
+	 * @param graph
+	 *            Graph
+	 * @param sourceVertex
+	 *            source vertex
+	 */
+	public DepthFirstSearch(Graph graph, int sourceVertex) {
+		this.sourceVertex = sourceVertex;
+		marked = new boolean[graph.getNumberOfVertices()];
+		edgeTo = new int[graph.getNumberOfVertices()];
+		edgeTo[sourceVertex] = Integer.MIN_VALUE;
+		dfs(graph, sourceVertex);
+	}
+
+	/**
+	 * checks if the given vertex is marked. This will help in answering
+	 * questions like, is there any path between given vertex and source vertex?
+	 * 
+	 * @param destinationVertex
+	 *            destination vertex in the graph.
 	 * @return true if path exists, false otherwise.
 	 */
-	public boolean marked(int v) {
-		return marked[v];
+	public boolean marked(int destinationVertex) {
+		return marked[destinationVertex];
 	}
-	
-	private void dfs(Graph G, int s) {
-		marked[s] = true;
+
+	private void dfs(Graph graph, int sourceVertex) {
+		marked[sourceVertex] = true;
 		count++;
-		for (int w: G.adj(s)) {
+		for (int w : graph.adj(sourceVertex)) {
 			if (!marked[w]) {
-				edgeTo[w] = s;
-				dfs(G, w);
+				edgeTo[w] = sourceVertex;
+				dfs(graph, w);
 			}
 		}
 	}
-	
+
 	/**
-	 * returns the number of vertices connected in the graph.
-	 * if the count is equal to total number of vertices of the graph,
-	 * then the complete graph is connected, otherwise it contains connected
-	 * components.
+	 * returns the number of vertices connected in the graph. if the count is
+	 * equal to total number of vertices of the graph, then the complete graph
+	 * is connected, otherwise it contains connected components.
+	 * 
 	 * @return
 	 */
 	public int count() {
 		return count;
 	}
-	
+
 	public String pathTo(int w) {
 		String path = null;
 		int v = w;
-		while (v == s) {
+		while (v == sourceVertex) {
 			path = edgeTo[w] + " - " + path;
 		}
-		path = s + " - " + path + " - " + w;
+		path = sourceVertex + " - " + path + " - " + w;
 		return path;
 	}
 
