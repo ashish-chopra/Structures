@@ -34,36 +34,41 @@
  */
 package com.graphs;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import com.bags.Bag;
 
 /**
  * Graph is an ADT that represents a collection of vertices V and the connection amongst them
  * called edges E. Every Graph G is defined as function of G = f(V, E). A graph is created by
- * calling one of the two constuctors. One creates a graph with given number of vertices.
+ * calling one of the two constructors. One creates a graph with given number of vertices.
  * Other takes a stream input and initializes the graph from stream data.
  *
+ * Note: This graph is an undirected graph, i.e. if a vertex v is reachable from vertex w, 
+ * then it implies that w is reachable from v
+ * 
  * @author Ashish Chopra
  *
  */
 public class Graph {
-	private int V;				// number of vertices
-	private int E;				// number of edges
-	private Bag<Integer>[] adj; // adjacency list of vertices
+	private int noOfVertices;
+	private int noOfEdges;
+	private List<Bag<Integer>> adj; // adjacency list of vertices
 
 	/**
 	 * creates an empty graph with zero edges with
 	 * given number of vertices as input.
-	 * @param v Total number of vertices in the graph.
+	 * @param totalVertices Total number of vertices in the graph.
 	 */
-	public Graph(int v) {
-		if (v <= 0)
+	public Graph(int totalVertices) {
+		if (totalVertices <= 0)
 			throw new IllegalArgumentException("No. of vertices is zero or negative.");
-		this.V = v;
-		this.E = 0;
-		adj = (Bag<Integer>[]) new Bag[V];
-		for (int i = 0; i < V; i++) {
-			adj[i] = new Bag<Integer>();
+		this.noOfVertices = totalVertices;
+		this.noOfEdges = 0;
+		adj = new ArrayList<Bag<Integer>>();
+		for (int i = 0; i < noOfVertices; i++) {
+			adj.add(new Bag<Integer>());
 		}
 	}
 
@@ -83,8 +88,8 @@ public class Graph {
 	 */
 	public Graph(Scanner s) {
 		this(s.nextInt());
-		int E = s.nextInt();
-		for (int i = 0; i < E; i++) {
+		int noOfEdges = s.nextInt();
+		for (int i = 0; i < noOfEdges; i++) {
 			addEdge(s.nextInt(), s.nextInt());
 		}
 	}
@@ -95,25 +100,25 @@ public class Graph {
 	 * @param w other vertex
 	 */
 	public void addEdge(int v, int w) {
-		adj[v].add(w);
-		adj[w].add(v);
-		E++;
+		adj.get(v).add(w);
+		adj.get(w).add(v);
+		noOfEdges++;
 	}
 
 	/**
 	 * gets the total number of vertices in the graph.
 	 * @return
 	 */
-	public int V() {
-		return V;
+	public int getNumberOfVertices() {
+		return noOfVertices;
 	}
 
 	/**
 	 * gets the total number of edges in the graph.
 	 * @return
 	 */
-	public int E() {
-		return E;
+	public int getNumberOfEdges() {
+		return noOfEdges;
 	}
 
 	/**
@@ -123,7 +128,7 @@ public class Graph {
 	 * @return
 	 */
 	public Iterable<Integer> adj(int v) {
-		return adj[v];
+		return adj.get(v);
 	}
 
 	/**
@@ -144,8 +149,8 @@ public class Graph {
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Graph with V = " + V + " and E = " + E + "\n");
-		for (int v = 0; v < V; v++) {
+		sb.append("Graph with V = " + noOfVertices + " and E = " + noOfEdges + "\n");
+		for (int v = 0; v < noOfVertices; v++) {
 			sb.append(v + ": ");
 			for (int w: adj(v)) {
 				sb.append(w + " ");
