@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 
 public class DFSTest extends TestCase {
 
-	private Graph G;
+	private Graph graph;
 	public void setUp() {
 		String name = "tinyGraph.txt";
 		Scanner scn = null;
@@ -19,9 +19,9 @@ public class DFSTest extends TestCase {
 			URL url = this.getClass().getResource("/" + name);
 			scn = new Scanner(new File(url.getFile()));
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
-		this.G = new Graph(scn);
+		this.graph = new Graph(scn);
 		
 	}
 	
@@ -30,7 +30,6 @@ public class DFSTest extends TestCase {
 	 *  2. Is there any path between source vertex and given vertex.
 	 */
 	public void testDFSQueries() {
-		DepthFirstSearch dfs = new DepthFirstSearch(G, 0);
-		
+		DepthFirstSearch dfs = new DepthFirstSearch(graph, 0);
 	}
 }

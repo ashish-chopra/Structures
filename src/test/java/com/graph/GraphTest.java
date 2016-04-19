@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 
 public class GraphTest extends TestCase {
 
-	private Graph G;
+	private Graph graph;
 	public void setUp() {
 		
 		Scanner scn = null;
@@ -19,19 +19,19 @@ public class GraphTest extends TestCase {
 			URL url = this.getClass().getResource("/tinyGraph.txt");
 			scn = new Scanner(new File(url.getFile()));
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
-		this.G = new Graph(scn);
+		this.graph = new Graph(scn);
 	}
 	public void testGraphAPI() throws Exception {
 		
-		assertEquals(12, G.V());
-		assertEquals(16, G.E());
-		System.out.println(G.toString());
+		assertEquals(12, graph.getNumberOfVertices());
+		assertEquals(16, graph.getNumberOfEdges());
+		System.out.println(graph.toString());
 	}
 	
 	public void testBasicOperationsOfGraph() {
-		BasicOperations bo = new BasicOperations(G);
+		BasicOperations bo = new BasicOperations(graph);
 		
 		assertEquals(3, bo.degree(1));
 		assertEquals(2, bo.degree(4));
