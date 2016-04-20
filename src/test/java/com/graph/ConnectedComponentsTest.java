@@ -38,7 +38,7 @@ public class ConnectedComponentsTest extends TestCase {
 			components.add(new Queue<Integer>());
 		}
 
-		for (int v = 0; v < graph.getNumberOfVertices(); v++) {
+		for (int v = 0; v < graph.V(); v++) {
 			int id = cc.id(v);
 			components.get(id).enqueue(v);
 		}

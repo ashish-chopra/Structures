@@ -33,7 +33,7 @@ public class Cycle {
 	 */
 	public Cycle(Graph graph, int sourceVertex) {
 		this.graph = graph;
-		this.marked = new boolean[graph.getNumberOfVertices()];
+		this.marked = new boolean[graph.V()];
 		this.hasCycle = false;
 		dfs(sourceVertex);
 	}

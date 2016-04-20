@@ -30,10 +30,10 @@ public class ConnectedComponents {
 	private int count;
 	
 	public ConnectedComponents(Graph graph) {
-		marked = new boolean[graph.getNumberOfVertices()];
-		id = new int[graph.getNumberOfVertices()];
+		marked = new boolean[graph.V()];
+		id = new int[graph.V()];
 		count = 0;
-		for (int v = 0; v < graph.getNumberOfVertices(); v++) {
+		for (int v = 0; v < graph.V(); v++) {
 			if (!marked[v]) {
 				dfs(graph, v);
 				count++;

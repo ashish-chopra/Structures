@@ -29,8 +29,8 @@ public class BreadthFirstSearch {
 	private int edgeTo[];       // mark the parent vertex for a given vertex
 	
 	public BreadthFirstSearch(Graph graph, int source) {
-		marked = new boolean[graph.getNumberOfVertices()];
-		edgeTo = new int[graph.getNumberOfVertices()];
+		marked = new boolean[graph.V()];
+		edgeTo = new int[graph.V()];
 		bfs(graph, source);
 	}
 	

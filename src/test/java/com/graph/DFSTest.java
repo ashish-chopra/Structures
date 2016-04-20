@@ -13,10 +13,9 @@ public class DFSTest extends TestCase {
 
 	private Graph graph;
 	public void setUp() {
-		String name = "tinyGraph.txt";
 		Scanner scn = null;
 		try {
-			URL url = this.getClass().getResource("/" + name);
+			URL url = this.getClass().getClassLoader().getResource("tinyGraph.txt");
 			scn = new Scanner(new File(url.getFile()));
 		} catch (Exception e) {
 			e.printStackTrace();

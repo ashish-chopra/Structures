@@ -52,8 +52,8 @@ import com.bags.Bag;
  *
  */
 public class Graph {
-	private int noOfVertices;
-	private int noOfEdges;
+	private int V;
+	private int E;
 	private List<Bag<Integer>> adj; // adjacency list of vertices
 
 	/**
@@ -64,10 +64,10 @@ public class Graph {
 	public Graph(int totalVertices) {
 		if (totalVertices <= 0)
 			throw new IllegalArgumentException("No. of vertices is zero or negative.");
-		this.noOfVertices = totalVertices;
-		this.noOfEdges = 0;
+		this.V = totalVertices;
+		this.E = 0;
 		adj = new ArrayList<Bag<Integer>>();
-		for (int i = 0; i < noOfVertices; i++) {
+		for (int i = 0; i < V; i++) {
 			adj.add(new Bag<Integer>());
 		}
 	}
@@ -102,23 +102,23 @@ public class Graph {
 	public void addEdge(int v, int w) {
 		adj.get(v).add(w);
 		adj.get(w).add(v);
-		noOfEdges++;
+		E++;
 	}
 
 	/**
 	 * gets the total number of vertices in the graph.
 	 * @return
 	 */
-	public int getNumberOfVertices() {
-		return noOfVertices;
+	public int V() {
+		return V;
 	}
 
 	/**
 	 * gets the total number of edges in the graph.
 	 * @return
 	 */
-	public int getNumberOfEdges() {
-		return noOfEdges;
+	public int E() {
+		return E;
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class Graph {
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Graph with V = " + noOfVertices + " and E = " + noOfEdges + "\n");
-		for (int v = 0; v < noOfVertices; v++) {
+		sb.append("Graph with V = " + V + " and E = " + E + "\n");
+		for (int v = 0; v < V; v++) {
 			sb.append(v + ": ");
 			for (int w: adj(v)) {
 				sb.append(w + " ");

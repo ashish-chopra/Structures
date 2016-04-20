@@ -16,7 +16,7 @@ public class GraphTest extends TestCase {
 		
 		Scanner scn = null;
 		try {
-			URL url = this.getClass().getResource("/tinyGraph.txt");
+			URL url = this.getClass().getClassLoader().getResource("tinyGraph.txt");
 			scn = new Scanner(new File(url.getFile()));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -25,8 +25,8 @@ public class GraphTest extends TestCase {
 	}
 	public void testGraphAPI() throws Exception {
 		
-		assertEquals(12, graph.getNumberOfVertices());
-		assertEquals(16, graph.getNumberOfEdges());
+		assertEquals(12, graph.V());
+		assertEquals(16, graph.E());
 		System.out.println(graph.toString());
 	}
 	

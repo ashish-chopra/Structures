@@ -28,7 +28,7 @@ public class BasicOperations {
 	 * @return degree as <code>integer</code>
 	 */
 	public int degree(int vertex) {
-		if (vertex < 0 || vertex >= graph.getNumberOfVertices())
+		if (vertex < 0 || vertex >= graph.V())
 			throw new IllegalArgumentException("vertex not found in Graph");
 		int degree = 0;
 		for (int w : graph.adj(vertex)) {
@@ -45,7 +45,7 @@ public class BasicOperations {
 	 */
 	public int maxDegree() {
 		int maxDegree = 0;
-		for (int v = 0; v < graph.getNumberOfVertices(); v++) {
+		for (int v = 0; v < graph.V(); v++) {
 			int deg = degree(v);
 			if (maxDegree < deg) {
 				maxDegree = deg;
@@ -63,10 +63,10 @@ public class BasicOperations {
 	public double averageDegree() {
 		double avgDegree = 0;
 		int sumDegree = 0;
-		for (int v = 0; v < graph.getNumberOfVertices(); v++) {
+		for (int v = 0; v < graph.V(); v++) {
 			sumDegree += degree(v);
 		}
-		avgDegree = sumDegree / graph.getNumberOfVertices();
+		avgDegree = sumDegree / graph.V();
 		return avgDegree;
 	}
 
@@ -78,7 +78,7 @@ public class BasicOperations {
 	 */
 	public int numberOfSelfLoops() {
 		int count = 0;
-		for (int v = 0; v < graph.getNumberOfVertices(); v++) {
+		for (int v = 0; v < graph.V(); v++) {
 			for (int w : graph.adj(v)) {
 				if (w == v)
 					count++;

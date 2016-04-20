@@ -32,7 +32,7 @@ public class DepthFirstSearch {
 
 	private boolean[] marked; // vertices which are already visited
 	private int[] edgeTo; // store the parent vertex for each visited vertex
-	private int sourceVertex;
+	private int source;
 	private int count; // count the number of vertices traveled during DFS.
 
 	/**
@@ -45,9 +45,9 @@ public class DepthFirstSearch {
 	 *            source vertex
 	 */
 	public DepthFirstSearch(Graph graph, int sourceVertex) {
-		this.sourceVertex = sourceVertex;
-		marked = new boolean[graph.getNumberOfVertices()];
-		edgeTo = new int[graph.getNumberOfVertices()];
+		this.source = sourceVertex;
+		marked = new boolean[graph.V()];
+		edgeTo = new int[graph.V()];
 		edgeTo[sourceVertex] = Integer.MIN_VALUE;
 		dfs(graph, sourceVertex);
 	}
@@ -56,20 +56,20 @@ public class DepthFirstSearch {
 	 * checks if the given vertex is marked. This will help in answering
 	 * questions like, is there any path between given vertex and source vertex?
 	 * 
-	 * @param destinationVertex
+	 * @param vertex
 	 *            destination vertex in the graph.
 	 * @return true if path exists, false otherwise.
 	 */
-	public boolean marked(int destinationVertex) {
-		return marked[destinationVertex];
+	public boolean marked(int vertex) {
+		return marked[vertex];
 	}
 
-	private void dfs(Graph graph, int sourceVertex) {
-		marked[sourceVertex] = true;
+	private void dfs(Graph graph, int source) {
+		marked[source] = true;
 		count++;
-		for (int w : graph.adj(sourceVertex)) {
+		for (int w : graph.adj(source)) {
 			if (!marked[w]) {
-				edgeTo[w] = sourceVertex;
+				edgeTo[w] = source;
 				dfs(graph, w);
 			}
 		}
@@ -89,10 +89,10 @@ public class DepthFirstSearch {
 	public String pathTo(int w) {
 		String path = null;
 		int v = w;
-		while (v == sourceVertex) {
+		while (v == source) {
 			path = edgeTo[w] + " - " + path;
 		}
-		path = sourceVertex + " - " + path + " - " + w;
+		path = source + " - " + path + " - " + w;
 		return path;
 	}
 
