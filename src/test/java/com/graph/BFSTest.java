@@ -11,39 +11,38 @@ import junit.framework.TestCase;
 
 public class BFSTest extends TestCase {
 	
-	Graph G;
+	Graph graph;
 	public void setUp() {
 		Scanner scn = null;
 		try {
-			URL url = this.getClass().getResource("/tinyGraph.txt");
+			URL url = this.getClass().getClassLoader().getResource("tinyGraph.txt");
 			scn = new Scanner(new File(url.getFile()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		this.G = new Graph(scn);
+		this.graph = new Graph(scn);
 	}
 	
 	public void testBFSOperations() {
-		int s = 0;
-		int v = 5;
-		BreadthFirstSearch bfs = new BreadthFirstSearch(G, s);
-		System.out.println(bfs.hasPathTo(v));
-		assertEquals(true, bfs.hasPathTo(v));
+		int sourceVertex = 0;
+		int destinationVertex = 5;
+		BreadthFirstSearch bfs = new BreadthFirstSearch(graph, sourceVertex);
+		assertTrue(bfs.hasPathTo(destinationVertex));
 		
-		s = 0;
-		v = 9;
-		bfs = new BreadthFirstSearch(G, s);
-		assertEquals(false, bfs.hasPathTo(v));
+		sourceVertex = 0;
+		destinationVertex = 9;
+		bfs = new BreadthFirstSearch(graph, sourceVertex);
+		assertFalse(bfs.hasPathTo(destinationVertex));
 
-		s = 11;
-		bfs = new BreadthFirstSearch(G, s);
-		assertEquals(false, bfs.hasPathTo(v));
+		sourceVertex = 11;
+		destinationVertex = 9;
+		bfs = new BreadthFirstSearch(graph, sourceVertex);
+		assertFalse(bfs.hasPathTo(destinationVertex));
 		
-		//TODO: This test is failing. Need to be fixed.
-		/*
-		s = 10;
-		bfs = new BreadthFirstSearch(G, s);
-		assertEquals(true, bfs.hasPathTo(v));
-		*/
+		sourceVertex = 10;
+		destinationVertex = 9;
+		bfs = new BreadthFirstSearch(graph, sourceVertex);
+		assertFalse(bfs.hasPathTo(destinationVertex));
+		
 	}
 }

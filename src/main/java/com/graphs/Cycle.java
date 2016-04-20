@@ -22,20 +22,20 @@ public class Cycle {
 
 	private boolean marked[];	// list of vertices marked true if visited.
 	private boolean hasCycle;   // flag to record if cycle exists.
-	private Graph G;			// the graph under consideration
+	private Graph graph;			// the graph under consideration
 	
 
 	/**
 	 * creates a Cycle object which processes the
 	 * given graph from the given source vertex s.
-	 * @param G The Graph under processing.
-	 * @param s source vertex
+	 * @param graph The Graph under processing.
+	 * @param sourceVertex source vertex
 	 */
-	public Cycle(Graph G, int s) {
-		this.G = G;
-		this.marked = new boolean[G.V()];
+	public Cycle(Graph graph, int sourceVertex) {
+		this.graph = graph;
+		this.marked = new boolean[graph.getNumberOfVertices()];
 		this.hasCycle = false;
-		dfs(G, s);
+		dfs(sourceVertex);
 	}
 	
 	/*
@@ -44,11 +44,11 @@ public class Cycle {
 	 * is seen again, then cycle exists. 
 	 * 
 	 */
-	private void dfs(Graph G, int s) {
+	private void dfs(int s) {
 		marked[s] = true;
-		for (int w: G.adj(s)) {
+		for (int w: graph.adj(s)) {
 			if (!marked[w])
-				dfs(G, w);
+				dfs(w);
 			else {
 				hasCycle = true;
 				break;
@@ -57,7 +57,7 @@ public class Cycle {
 	}
 	
 	/**
-	 * determines if the given Graph G has cycle.
+	 * determines if the given Graph graph has cycle.
 	 * @return true if cycle exists, false otherwise.
 	 */
 	public boolean hasCycle() {

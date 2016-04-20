@@ -18,36 +18,35 @@
 package com.graphs;
 
 /**
- * CC stands for connected components.
- * It process the give graph to identify the connected components
+ * It processes the given graph to identify the connected components
  * and mark each vertex to the component id to which it belongs to.
  * @author Ashish Chopra
  *
  */
-public class CC {
+public class ConnectedComponents {
 
 	private boolean[] marked;
 	private int[] id;
 	private int count;
 	
-	public CC(Graph G) {
-		marked = new boolean[G.V()];
-		id = new int[G.V()];
+	public ConnectedComponents(Graph graph) {
+		marked = new boolean[graph.getNumberOfVertices()];
+		id = new int[graph.getNumberOfVertices()];
 		count = 0;
-		for (int v = 0; v < G.V(); v++) {
+		for (int v = 0; v < graph.getNumberOfVertices(); v++) {
 			if (!marked[v]) {
-				dfs(G, v);
+				dfs(graph, v);
 				count++;
 			}
 		}
 	}
 	
-	private void dfs(Graph G, int s) {
-		marked[s] = true;
-		id[s] = count;
-		for (int w: G.adj(s)) {
+	private void dfs(Graph graph, int sourceVertex) {
+		marked[sourceVertex] = true;
+		id[sourceVertex] = count;
+		for (int w: graph.adj(sourceVertex)) {
 			if (!marked[w]) {
-				dfs(G, w);
+				dfs(graph, w);
 			}
 		}
 	}

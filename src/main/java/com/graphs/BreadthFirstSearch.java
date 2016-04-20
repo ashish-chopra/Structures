@@ -28,10 +28,10 @@ public class BreadthFirstSearch {
 	private boolean marked[];   // vertices marked while traversing in BFS.
 	private int edgeTo[];       // mark the parent vertex for a given vertex
 	
-	public BreadthFirstSearch(Graph G, int s) {
-		marked = new boolean[G.V()];
-		edgeTo = new int[G.V()];
-		bfs(G, s);
+	public BreadthFirstSearch(Graph graph, int source) {
+		marked = new boolean[graph.getNumberOfVertices()];
+		edgeTo = new int[graph.getNumberOfVertices()];
+		bfs(graph, source);
 	}
 	
 	private void bfs(Graph G, int s) {

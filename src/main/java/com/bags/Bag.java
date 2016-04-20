@@ -25,17 +25,17 @@ import java.util.Iterator;
  * @version 1.0
  *
  */
-public class Bag<Item> implements Iterable<Item> {
+public class Bag<T> implements Iterable<T> {
 
 	
-	private Item[] contents;  
+	private T[] contents;  
 	private int N;
 	
 	/**
 	 * creates a new empty Bag.
 	 */
 	public Bag() {
-		contents = (Item[]) new Object[1];
+		contents = (T[]) new Object[1];
 		N = 0;
 	}
 	
@@ -53,7 +53,7 @@ public class Bag<Item> implements Iterable<Item> {
 	 * adds an item into the bag.
 	 * @param item An item need to be added.
 	 */
-	public void add(Item item) {
+	public void add(T item) {
 		if (item == null)
 			throw new NullPointerException("You cannot fool us with null insertion :)");
 		if (N == contents.length) 
@@ -66,7 +66,7 @@ public class Bag<Item> implements Iterable<Item> {
 	 * returns an iterator over the elements of the bag.
 	 * 
 	 */
-	public Iterator<Item> iterator() {
+	public Iterator<T> iterator() {
 		return new BagIterator();
 	}
 	
@@ -75,7 +75,7 @@ public class Bag<Item> implements Iterable<Item> {
 	}
 	
 	private void resize(int size) {
-		Item[] items = (Item[]) new Object[size];
+		T[] items = (T[]) new Object[size];
 		for (int i = 0; i < N; i++) {
 			items[i] = contents[i];
 		}
@@ -83,7 +83,7 @@ public class Bag<Item> implements Iterable<Item> {
 	}
 	
 	
-	private class BagIterator implements Iterator<Item> {
+	private class BagIterator implements Iterator<T> {
 
 		private int current;
 		
@@ -95,7 +95,7 @@ public class Bag<Item> implements Iterable<Item> {
 			return current != N;
 		}
 
-		public Item next() {
+		public T next() {
 			return contents[current++]; 
 		}
 
