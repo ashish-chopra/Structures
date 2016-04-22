@@ -57,9 +57,9 @@ I want to contribute!
 Awesome! Please fork the repository and branch it & start developing a new feature or fix a bug. Then send a pull request. I will review the submissions and add it into the main repo.
 Please be sure to checkout the contribution guidelines to reduce friction!
 
-Active contributors in the repo - 
- 1. [Ashish Chopra - @ashish-chopra](http://github.com/ashish-chopra)
-
+Initial contributors in the repo - 
+ 1. [Ashish Chopra - @ashish-chopra](https://github.com/ashish-chopra)
+ 2. [Tarun Jain - @JainTarunJain](https://github.com/JainTarunJain)
 
 License
 ----------------
