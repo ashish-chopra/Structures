@@ -28,7 +28,7 @@ public class Josephus {
 	private Queue<Integer> people;
 	private int N;
 	/**
-	 * constucts a new Josephus object to 
+	 * constructs a new Josephus object to 
 	 * execute with the initial number of people.
 	 * @param N number of people as <code>int</code>.
 	 */
@@ -53,7 +53,7 @@ public class Josephus {
 			throw new IllegalArgumentException("M is out of range!");
 		String sequence = "";
 		while (!people.isEmpty()) {
-			sequence += removeAt(2) + " ";
+			sequence += removeAt(M) + " ";
 		}
 		return sequence;
 	}
