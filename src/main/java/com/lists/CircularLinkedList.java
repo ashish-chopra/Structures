@@ -14,7 +14,7 @@ import java.util.Iterator;
 /*
 * LinkedList provides following API
         * ----------------------------------------------
-        *         LinkedList ()                   // constructs a empty list. O(1)
+        *         CircularLinkedList ()                   // constructs a empty list. O(1)
         * int     getSize()                      // returns the length of list in integer. O(1)
         * boolean isEmpty()               // returns true if list is empty, false otherwise. O(1)
         * void    add(Item item)      	   // append an item in the last of list. O(1)
@@ -29,9 +29,9 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
     LinkedListNode head, tail;
     int size;
 
-    /*
-        creates new empty
-        CircularLinkedList
+    /**
+       * creates new empty
+       * CircularLinkedList
      */
 
     public CircularLinkedList(){
@@ -40,27 +40,27 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
         size = 0;
     }
 
-    /*
-        returns the size of
-        CircularLinkedList
+    /**
+       * returns the size of
+       * CircularLinkedList
      */
 
     public int getSize(){
         return size;
     }
 
-    /*
-        checks is the
-        list is empty
+    /**
+       * checks is the
+       * list is empty
      */
 
     public boolean isEmpty(){
         return size == 0;
     }
 
-    /*
-        add item to the last
-        of the list
+    /**
+       * add item to the last
+       * of the list
      */
 
     public void add(Item item){
@@ -78,9 +78,9 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
         size++;
     }
 
-    /*
-        add item at the
-        specified index
+    /**
+       * add item at the
+       * specified index
      */
 
     public void add(Item item, int index)throws IndexOutOfBoundsException{
@@ -114,9 +114,9 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
 
     }
 
-    /*
-        returns the item
-        at the specified index
+    /**
+       * returns the item
+       * at the specified index
      */
 
     public Item get(int index) throws IndexOutOfBoundsException{
@@ -143,9 +143,9 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
         }
     }
 
-    /*
-        remove the item at the
-        specified index
+    /**
+       * remove the item at the
+       * specified index
      */
 
     public void remove(int index) throws IndexOutOfBoundsException{
@@ -176,9 +176,9 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
         }
     }
 
-    /*
-        returns an iterator
-        to list
+    /**
+       * returns an iterator
+       * to list
      */
 
     public Iterator<Item> iterator(){
@@ -207,8 +207,8 @@ public class CircularLinkedList<Item> implements Iterable<Item>{
         Item item;
         LinkedListNode next;
 
-        LinkedListNode(Item i){
-            item = i;
+        LinkedListNode(Item item){
+            this.item = item;
             next = null;
         }
     }
