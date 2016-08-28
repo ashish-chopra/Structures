@@ -195,8 +195,6 @@ public class ST<Key extends Comparable<Key>, Value> {
 				hi = mid - 1;
 			}
 		}
-		if (lo == 0)
-		   return lo;
 		if (key.compareTo(keys[lo]) > 0)   
 		   return lo + 1;
 		return lo;
