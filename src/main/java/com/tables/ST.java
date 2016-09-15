@@ -182,7 +182,7 @@ public class ST<Key extends Comparable<Key>, Value> {
 	
 	private int rank(Key key, int lo, int hi) {
 		
-		while (lo < hi) {
+		while (lo <= hi) {
 			int mid = lo + (hi- lo) / 2;
 			int cmp = key.compareTo(keys[mid]);
 			
@@ -195,8 +195,6 @@ public class ST<Key extends Comparable<Key>, Value> {
 				hi = mid - 1;
 			}
 		}
-		if (key.compareTo(keys[lo]) > 0)   
-		   return lo + 1;
 		return lo;
 	}
 	
