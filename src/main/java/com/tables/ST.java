@@ -25,7 +25,6 @@ public class ST<Key extends Comparable<Key>, Value> {
 	
 	/**
 	 * creates a new symbol table object
-	 * @param capacity size of the symbol table as int.
 	 */
 	@SuppressWarnings("unchecked")
 	public ST() {
@@ -111,7 +110,7 @@ public class ST<Key extends Comparable<Key>, Value> {
 	
 	
 	/**
-	 * retreives the value corresponding to a given key
+	 * retrieves the value corresponding to a given key
 	 * in the symbol table.
 	 * @param key
 	 * @return
@@ -183,17 +182,19 @@ public class ST<Key extends Comparable<Key>, Value> {
 	
 	private int rank(Key key, int lo, int hi) {
 		
-		while (lo < hi) {
+		while (lo <= hi) {
 			int mid = lo + (hi- lo) / 2;
 			int cmp = key.compareTo(keys[mid]);
 			
-			if (cmp > 0) {
+			if (cmp == 0)
+			   return mid;
+			else if (cmp > 0) {
 				lo = mid + 1;
 			}
 			else if (cmp < 0) {
 				hi = mid - 1;
 			}
-		}		
+		}
 		return lo;
 	}
 	
