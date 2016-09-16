@@ -101,8 +101,8 @@ public class LinkedList<Item> implements Iterable<Item>{
 			N++;
 			return;
 		}
-		
-		for (int i = 1; i < index && currentNode.next != null; i++) {
+		int position = index-1;
+		for (int i = 1; i < position && currentNode.next != null; i++) {
 			currentNode = currentNode.next;
 		}
 		newNode.next = currentNode.next;
