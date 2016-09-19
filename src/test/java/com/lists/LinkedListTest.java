@@ -2,6 +2,7 @@ package com.lists;
 
 import java.util.NoSuchElementException;
 
+import practice.LinkedList;
 import junit.framework.TestCase;
 
 public class LinkedListTest extends TestCase {
@@ -21,6 +22,19 @@ public class LinkedListTest extends TestCase {
 		assertEquals(8, list.size());
 		assertEquals(true, list.remove(2));
 
+	}
+	
+	public void testAddByIndex(){
+		LinkedList<String> list = new LinkedList<String>();
+		list.add("quick");
+		list.add("brown");
+		list.add("over");
+		list.add("little",2);
+		list.add("lazy");
+		list.add("dog");
+		
+		assertEquals("little", list.get(2));
+		assertEquals("brown", list.get(3));
 	}
 
 	public void testIteratorHasNext() {
