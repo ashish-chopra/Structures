@@ -22,6 +22,19 @@ public class LinkedListTest extends TestCase {
 		assertEquals(true, list.remove(2));
 
 	}
+	
+	public void testListByAddAtIndex() {
+
+		LinkedList<String> list = new LinkedList<String>();
+		list.add("quick");
+		list.add("brown");
+		list.add("fox");
+		list.add("lazy");
+		list.add("little",2);
+		assertEquals("little", list.get(2));
+		assertEquals("brown", list.get(3));
+
+	}
 
 	public void testIteratorHasNext() {
 
