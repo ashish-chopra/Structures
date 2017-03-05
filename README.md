@@ -2,7 +2,7 @@
 
 What are we working on?
 ---------------------
-1. Looking into some applications of LinkedList, Trees.
+1. Adding elementary sorts and some applications of LinkedList, Trees.
 2. Implementing Graph Algorithms
 3. Testing Data Structures with huge data.
 
@@ -21,23 +21,26 @@ PS: You may find that we are not strictly following the JAVA coding conventions 
 
 How to download?
 ---------------------------
-'Structures' is a maven project. You must have any latest version of Git, Maven and Eclipse (optional) installed on your machine and follow the steps mentioned below:
+'Structures' is a maven project. You must have any latest version of Git, Maven installed in your machine and follow the steps mentioned below:
 
    Clone the repo using command and generate eclipse project files:
 
-    >$ git clone <clone_url>         // you will get the clone URL at the 
-                                     // right side of the home page of this repo.
+    >$ git clone https://github.com/ashish-chopra/Structures.git
     >$ cd Structures                 // browse inside Structures       
-     
     >$ mvn eclipse:eclipse           // it generates the eclipse specific files, so that 
                                      // you can import this project into eclipse
 
-   If you are not using Eclipse, then you can convert it into your IDE specific project. For this, consult maven's website.
+Then, Import the project into Eclipse by File > Import > Existing Maven Project into Workspace.
+
+I have also tried [Visual Studio Code](https://code.visualstudio.com/) as well. Make sure you installed the [Java Langauge Support extension from RedHat](https://marketplace.visualstudio.com/items?itemName=redhat.java) for VS code and then follow following commands to get started:
+
+    >$ git clone https://github.com/ashish-chopra/Structures.git
+    >$ cd Structures       # browse inside Structures      
+    >$ code .              # open up VS code editor at this location
    
-   Then, Import the project into Eclipse by File > Import > Existing Maven Project into Workspace
-   
-   Since recenlty, we converted the old test cases into junits, so running the same is super-easy! 
-   But i still miss my old in-house developed testing framework :(
+Inside editor,  open the command window using `Ctrl+Shift+p`, type `configure build task`, select `maven`; it will create `.vscode` folder inside your project structure. Then, use command `Ctrl+Shift+b` to run the project maven build. I will add the support for other commands soon. If you can, then send me a pull request.
+
+Other commands:
 
     >$ mvn compile     		// this will only compile your source code
     >$ mvn test        		// this will run the test suite
@@ -45,7 +48,6 @@ How to download?
     							   // at "Structures/target/site/apidocs/"
 
    You can run these commands from command line inside your `Structures` directory. 
-   
    Or using Eclipse by right click `Structures > Run As > Maven Build ...`
 
 
@@ -60,16 +62,19 @@ Please use issue tracker for following purpose:
 
 I want to contribute!
 -------------------------
-Awesome! Please fork the repository and branch it & start developing a new feature or fix a bug. Then send a pull request. I will review the submissions and add it into the main repo. Read few classes, and you will pick up our convention easily. I will publish a contribution guideline shortly.
-
-Initial contributors in the repo - 
- 1. [Ashish Chopra - @ashish-chopra](https://github.com/ashish-chopra)
- 2. [Tarun Jain - @JainTarunJain](https://github.com/JainTarunJain)
+Awesome! Please fork the repository and make a new branch & start developing a new feature or fix a bug. 
+Then send a pull request. I will review the submissions and add it into the main repo.
+<!--
+Active contributors in the repo - 
+ 1. [Ashish Chopra - @ashish-chopra](http://github.com/ashish-chopra)-->
 
 And also thanks to many contributors for their submissions. I will keep adding them here.
  1. Shivam Goel
  2. Havan Aggarwal
  3. Gansai
+ 4. Tarun Jain
+ 5. Miguel Stephane
+ 
 
 License
 ----------------
