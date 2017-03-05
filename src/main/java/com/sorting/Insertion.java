@@ -3,24 +3,24 @@
  * Date: 13 Dec, 2015
  * Author: Tarun Jain
  * -----------------------------------------------
- * Sorting is the process of rearranging a sequence of objects so as to put them in
- * some logical order. The insertion sort algorithm sorts an array by comparing the 
- * value at any index from all the prior index values starting from first until the
- * lesser value is found. Then we place the value at the index before which there are
- * no lesser values found and rearrange rest of the values till the index of the value 
- * is compared. By doing this iteratively to the last index, we have a sorted array of 
- * integers. 
+ * Sorting is the process of re-arranging a sequence of objects so as to put them in
+ * some logical order. Insertion sort works as follows:
+ * The sorting starts from left side of the array and ends up at the right hand side with a sorted array in the left.
+ * During a pass the item at current index is placed in the sorted array by finding its
+ * correct position and moving other elements towards right.
  * 
  * 
- * 
- *  *  Features:
+ * Features:
  *  
+ * 	1. Unlike selection sort, insertion sort is sensitive to input. If array is large and 
+ *     items are already sorted, then insertion sort runs faster than if the enteries are 
+ *     randomly ordered.
  *  1. Insertion Sort is implemented as an array of Comparable Objects and sorts them
  *     based on their natural order defined by Comparable interface.
  *  2. In case if client wants to sort the objects in some other order than the natural
  *     order of objects, then client can call the overloaded method 
  *     Insertion.sort(array, comparator) and pass the comparator object which gives the 
- *     customized ordering   
+ *     customized ordering strategy.
  *  3. It is a generic implementation which can take any type of array of objects.   
  *  4. The implementation is based on array based data structure.
  *  5. The running time complexity of each operation is constant, O(1/2 N^2).
@@ -45,41 +45,23 @@ public class Insertion {
 	 * @param array the array to be sorted
 	 * 
 	 */
-	public static void sort(Comparable[] array) {
+	public static void sort(Comparable<Object>[] array) {
 		if(array == null)
 			throw new NullPointerException();
-		int len = array.length;
-		for (int i = 0; i < len; i++) {
+		int N = array.length;
+		for (int i = 0; i < N; i++) {
 			for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
 				exch(array, j - 1, j);
 			}
 		}
 	}
 	
-	
-	/**
-	 * Rearranges the subarray a[lo....hi] in ascending order, 
-	 * using the natural order.
-	 * @param array the array to be sorted
-	 * @param lo left endpoint
-	 * @param hi right endpoint
-	 */
-	public static void sort(Comparable[] array, int lo, int hi) {
-		if(array == null)
-			throw new NullPointerException();
-		for (int i = lo; i <= hi; i++) {
-			for (int j = i; j > lo && less(array[j], array[j - 1]); j--) {
-				exch(array, j, j - 1);
-			}
-		}
-	}
-
 	/**
 	 * Rearranges the array in ascending order, using a comparator.
 	 * @param array the array to be sorted
 	 * @param com the comparator specifying the order
 	 */
-	public static void sort(Object[] array, Comparator com) {
+	public static void sort(Object[] array, Comparator<Object> com) {
 		if(array == null)
 			throw new NullPointerException();
 		int n = array.length;
@@ -93,22 +75,22 @@ public class Insertion {
 
 
 	/*
-	 * check is v is less than w ?
+	 * checks to see if v is less than w.
 	 */
-	private static boolean less(Comparable v, Comparable w) {
+	private static boolean less(Comparable<Object> v, Comparable<Object> w) {
 		return v.compareTo(w) < 0;
 	}
 	
 	
 	/*
-	 * check is v is less than w ?
+	 * checks to see if v is less than w.
 	 */
-	private static boolean less(Object v, Object w, Comparator c) {
+	private static boolean less(Object v, Object w, Comparator<Object> c) {
 		return c.compare(v, w) < 0;
 	}
 	
 	/*
-	 * swap a[i] and a[j]
+	 * swaps a[i] and a[j]
 	 */
 	private static void exch(Object[] a, int i, int j) {
 		Object swap = a[i];
@@ -125,6 +107,4 @@ public class Insertion {
 		for (int i = 0; i < len; i++)
 			System.out.print(array[i] + ",");
 	}
-
-	
 }
