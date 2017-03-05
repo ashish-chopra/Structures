@@ -45,7 +45,7 @@ public class Insertion {
 	 * @param array the array to be sorted
 	 * 
 	 */
-	public static void sort(Comparable<Object>[] array) {
+	public static void sort(Comparable[] array) {
 		if(array == null)
 			throw new NullPointerException();
 		int N = array.length;
@@ -61,7 +61,7 @@ public class Insertion {
 	 * @param array the array to be sorted
 	 * @param com the comparator specifying the order
 	 */
-	public static void sort(Object[] array, Comparator<Object> com) {
+	public static void sort(Object[] array, Comparator com) {
 		if(array == null)
 			throw new NullPointerException();
 		int n = array.length;
@@ -77,7 +77,7 @@ public class Insertion {
 	/*
 	 * checks to see if v is less than w.
 	 */
-	private static boolean less(Comparable<Object> v, Comparable<Object> w) {
+	private static boolean less(Comparable v, Comparable w) {
 		return v.compareTo(w) < 0;
 	}
 	
@@ -85,7 +85,7 @@ public class Insertion {
 	/*
 	 * checks to see if v is less than w.
 	 */
-	private static boolean less(Object v, Object w, Comparator<Object> c) {
+	private static boolean less(Object v, Object w, Comparator c) {
 		return c.compare(v, w) < 0;
 	}
 	

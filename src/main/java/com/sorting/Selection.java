@@ -51,7 +51,7 @@ public class Selection {
 	 * @param array the array to be sorted
 	 * 
 	 */
-	public static void sort(Comparable<Object>[] array) {
+	public static void sort(Comparable[] array) {
 		if(array == null)
 			throw new NullPointerException();
 		int size = array.length;
@@ -72,7 +72,7 @@ public class Selection {
 	 * @param c the comparator specifying the ordering sequence
 	 */
 
-	public static void sort(Object[] array, Comparator<Object> c) {
+	public static void sort(Object[] array, Comparator c) {
 		
 		if(array == null)
 			throw new NullPointerException();
@@ -93,14 +93,14 @@ public class Selection {
 	/*
 	 * checks if v is smaller than w.
 	 */
-	private static boolean less(Comparable<Object> v, Comparable<Object> w) {
+	private static boolean less(Comparable v, Comparable w) {
 		return v.compareTo(w) < 0;
 	}
 
 	/*
 	 * checks if v is smaller than w using comparator
 	 */
-	private static boolean less(Comparator<Object> c, Object v, Object w) {
+	private static boolean less(Comparator c, Object v, Object w) {
 		return c.compare(v, w) < 0;
 	}
 
@@ -117,7 +117,7 @@ public class Selection {
      * prints sequence of Objects to standard output. 
      * @param array the array to be printed
      */
-	public static void show(Comparable<Object>[] array) {
+	public static void show(Comparable[] array) {
 		int n = array.length;
 		for (int i = 0; i < n; i++) {
 			System.out.print(array[i] + ",");
