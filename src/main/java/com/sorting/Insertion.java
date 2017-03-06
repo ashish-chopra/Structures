@@ -2,6 +2,7 @@
  * File: Insertion.java
  * Date: 13 Dec, 2015
  * Author: Tarun Jain
+ * Modified: 5 March, 2017
  * -----------------------------------------------
  * Sorting is the process of re-arranging a sequence of objects so as to put them in
  * some logical order. Insertion sort works as follows:
